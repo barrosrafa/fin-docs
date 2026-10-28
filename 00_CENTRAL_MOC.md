@@ -54,6 +54,7 @@ O registro cronológico, fiel e detalhado de todas as 23 conversas originais:
 
 ### 🏛️ 2. Arquitetura & Sistema
 Padrões estruturais, consistência transacional e infraestrutura:
+- [[ADR_001_Evolucao_Triade_StatusInvest_ClubeFII_brapi_CDN_First|ADR 001: Evolução da Plataforma (Status Invest + Clube FII + brapi via CDN-First)]]
 - [[Arquitetura_Geral_Ecossistema_Fin|Arquitetura Geral do Ecossistema Fin]]
 - [[Arquitetura_Financeira_Missao_Critica|Arquitetura Financeira de Missão Crítica & Ledger de Partidas Dobradas (Síntese)]]
 - [[Especificacao_Normativa_Missao_Critica_Auditoria|Especificação Normativa de Missão Crítica & Auditoria Transacional]]
@@ -122,6 +123,8 @@ Interface moderna e responsiva em Next.js 15:
 
 ### 🛡️ 8. Auditorias, Testes & Pentest
 Relatórios de validação, segurança e planos de melhoria:
+- [[Relatorio_Homologacao_Etapa_1_Confiabilidade_e_Desacoplamento|Relatório de Homologação da Etapa 1: Confiabilidade Imediata & Desacoplamento Arquitetural]]
+- [[Relatorio_Auditoria_Remediacao_Integral_v4|Relatório de Remediação Integral da Auditoria v4.0 (F01–F50 & G01–G13)]]
 - [[Homologacao_Remediacao_Auditoria_QA|Relatório de Homologação e Remediação da Auditoria de QA (FIN-QA-01..10)]]
 - [[Relatorio_Executivo_Auditoria_Producao|Relatório Executivo de Auditoria em Modo de Produção]]
 - [[Pentest_Segurança_e_Vulnerabilidades|Relatório de Pentest, Segurança e Vulnerabilidades]]

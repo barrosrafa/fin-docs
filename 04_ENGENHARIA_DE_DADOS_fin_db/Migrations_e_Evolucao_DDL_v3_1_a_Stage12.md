@@ -93,6 +93,28 @@ flowchart TD
 - **Data de Execução:** 28/10/2026 (Conversa 19)
 - **Inovações:** Criação das tabelas `asset_details.detalhe_etf`, `asset_details.composicao_etf` e `asset_details.tracking_etf` para decomposição completa de cestas e tracking error.
 
+### 14. `13_billing_and_auth_v4.1` (Inbox de Webhooks & Autenticação Local)
+- **Data de Execução:** 28/10/2026 (Auditoria v4.0)
+- **Inovações:** Criação da tabela `billing.webhook_inbox` para processamento transacionalmente idempotente de eventos do gateway Asaas com índice único `(gateway_provider, event_id)`. Adição de colunas `password_hash`, `salt` e `email_verificado` na tabela `core.usuario` com suporte a PBKDF2 HMAC SHA-256.
+
+### 15. `14_ingestion_control_and_data_quality_v4.2` (Controle Autônomo e Dead-Letter Queue)
+- **Data de Execução:** 28/10/2026 (Auditoria v4.0)
+- **Inovações:** Criação da tabela `ingestion.pipeline_execution_log`, controle de data quality e Dead-Letter Queue (DLQ) para retry resiliente de pipelines de ingestão.
+
+### 16. `15_dbt_raw_landing_views_v4.3` (Ponte Operacional com `raw.payload` para dbt)
+- **Data de Execução:** 28/10/2026 (Etapa 1 - Confiabilidade)
+- **Inovações:** Criação de 16 views SQL no schema `raw` (`raw.b3_cothist`, `raw.status_invest_payloads`, `raw.cvm_demonstrativos`, `raw.bcb_sgs`, `raw.investidor10_payloads`, `raw.fundamentus_html`, `raw.clube_fii_graphql`, `raw.brick360_scores`, `raw.advfn_tecnico`, `raw.etfs_brasil_taxas`, `raw.anbima_mercado_secundario`, `raw.fundamentei_apollo`, `raw.funds_explorer_payloads`, `raw.fiis_com_br_agenda`, `raw.mais_retorno_metricas`, `raw.analise_de_acoes_checklists`). Essas views extraem e tipam dinamicamente os atributos JSONB de `raw.payload` sem duplicação de dados, viabilizando a execução de `dbt run` nos modelos de staging com integridade relacional e rastreabilidade por SHA-256.
+
+---
+
+## 🔒 Runner de Migração Transacional (`scripts/migrate.py`)
+
+A evolução do banco de dados agora utiliza um motor robusto de migração transacional em Python com:
+1. **Advisory Lock de Banco (`pg_advisory_lock`):** Impede que múltiplos contêineres ou pods executem migrações concorrentes simultaneamente.
+2. **Ledger Auditável (`system.schema_migrations`):** Registra cada script executado, timestamp, duração em milissegundos e o hash SHA-256 do conteúdo SQL.
+3. **Detecção de Drift & Tampering:** Se um script histórico for alterado no disco após ter sido aplicado em produção, o runner alerta imediatamente a divergência de hash.
+4. **Compatibilidade com Neon PostgreSQL:** Stub DDL gracioso para `create_hypertable` garantindo que ambientes padrão PostgreSQL ou Neon sem a extensão binária `timescaledb` operem com tabelas regulares sem quebrar a esteira de migrações.
+
 ---
 
 ## 🔗 Referências Cruzadas

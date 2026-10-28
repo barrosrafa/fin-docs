@@ -119,6 +119,25 @@ flowchart TD
 
 ---
 
+## ⏱️ Orquestração Automatizada no GitHub Actions e Differentiated Scheduling
+
+Na Etapa 1 de Confiabilidade (28/10/2026), o agendamento monolítico no workflow [`.github/workflows/scheduled-ingestion.yml`](https://github.com/barrosrafa/fin-ingestion/blob/main/.github/workflows/scheduled-ingestion.yml) foi desacoplado em janelas especializadas por classe de ativos:
+
+| Cron (UTC) | Horário BRT | Pipeline / Ação | Finalidade Operacional |
+| :--- | :--- | :--- | :--- |
+| `0 9 * * 1-5` | 06:00 BRT | `quarterly_cvm` | Descoberta diária de novos ITR/DFP e reapresentações contábeis |
+| `0 15 * * 1-5` | 12:00 BRT | `monthly_fii` | Captura de informes estruturados e eventos de FIIs |
+| `0 21 * * 1-5` | 18:00 BRT | `macro_bcb` | Séries SGS (Selic, IPCA, CDI) e fechamento PTAX |
+| `30 22 * * 1-5` | 19:30 BRT | `daily_market` | Cotações diárias consolidadas B3 (D-1) e recálculo analítico |
+| `0 23 * * 0` | 20:00 BRT | `queue_reconcile` | Reconciliação semanal, recuperação de tarefas e enriquecimento |
+
+### Regras de Ouro de Execução Homologadas:
+1. **Universo Ativo Dinâmico:** O método `DailyMarketPipeline.get_active_universe` consulta o universo completo de ativos listados (`core.ativo`) com ordenação por liquidez decrescente, eliminando qualquer fallback sintético de 5 ativos (`PETR4`, `VALE3`, `ITUB4`, `BBDC4`, `BBAS3`). Em caso de falha de conexão com o banco, o pipeline aborta com lista vazia sem fabricar dados fictícios.
+2. **Semântica Estrita de Preço e OHLC:** Observações pontuais de preço de sites terceiros são persistidas exclusivamente na tabela canônica `canonical.price_observation`. Na tabela `market.cotacao_diaria`, os campos `preco_abertura`, `preco_maximo` e `preco_minimo` permanecem estritamente `NULL` até que uma fonte oficial de mercado (como o arquivo COTAHIST da B3) forneça o candle completo.
+3. **Ponte de Staging dbt via Views SQL:** Os 16 modelos de staging do dbt leem diretamente das views relacionais criadas no schema `raw` (Stage 15 do DDL), que extraem de forma idempotente o conteúdo JSONB de `raw.payload`.
+
+---
+
 ## ⏱️ Sistema de High-Watermarks e Checkpoints
 
 Para garantir que pipelines interrompidos possam retomar exatamente de onde pararam sem reprocessar gigabytes de dados históricos:

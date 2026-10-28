@@ -111,6 +111,28 @@ class ValuationMetricResponse(BaseModel):
 
 ---
 
+## 🛡️ Saneamento de Dados, Filas ARQ e Ausência Explícita (Etapa 1 — 28/10/2026)
+
+Na Etapa 1 de Confiabilidade do FIN-APP, foram aplicadas correções estruturais em todos os serviços de consulta:
+
+### 1. Eliminação de Constantes de Preço Artificiais
+* **Proibição de `COALESCE` com Valores Mágicos:** Foram eliminadas todas as expressões SQL que substituíam cotações ausentes por `volume_medio` ou constantes numéricas (`10.0`, `1.0`, `15.0`, `0.5`). 
+* **Ausência Explícita:** Se um ativo não possui pregão registrado no dia, a API retorna estritamente `null` (`preco: null`, `cotacao_atual: null`). Volume e constantes não substituem preço de mercado.
+* **Módulos Saneados:**
+  - `app/market/service.py`: `cd.preco_fechamento as preco` e `cd.preco_fechamento as cotacao`.
+  - `app/comparator/router.py`: `cd.preco_fechamento as preco`, `COALESCE(inf.pvp, df.pvp) as pvp`, `inf.roe as roe`.
+  - `app/screener/router.py`: `cd.preco_fechamento as preco`, `COALESCE(inf.pvp, df.pvp) as pvp`.
+  - `app/stocks/service.py`: `cd.preco_fechamento as preco`, `COALESCE(cd.volume_total, a.volume_medio) as liquidez`.
+  - `app/analytics/service.py`: `cd.preco_fechamento as cotacao`.
+
+### 2. Alinhamento de Filas ARQ e Worker
+* **Unificação da Fila de Revalidação:** O enfileiramento de tarefas de *stale-while-revalidate* em `app/market/service.py` foi alinhado de `high_priority` para `QUEUE_DEFAULT` ("default"), garantindo que o worker padrão do ARQ (`app.worker.settings.WorkerSettings`) consuma e processe imediatamente os jobs de atualização sem necessidade de múltiplos processos em planos gratuitos.
+
+### 3. Esteira de CI/CD Própria
+* Implementado o workflow [`.github/workflows/ci.yml`](https://github.com/barrosrafa/fin-api/blob/main/.github/workflows/ci.yml) executando linting com Ruff, 102 testes automatizados com Pytest e teste de build da imagem Docker.
+
+---
+
 ## 🔗 Referências Cruzadas
 - [[Cache_Aside_Redis_e_Idempotencia|Cache no Redis e Idempotência]]
 - [[Motores_Matematicos_e_Valuation_Quant|Motores Quantitativos]]

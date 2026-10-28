@@ -127,6 +127,34 @@ $$\text{MDD} = \frac{\text{Trough Value} - \text{Peak Value}}{\text{Peak Value}}
 
 ---
 
+## 4. 📐 Fórmulas Canônicas Homologadas na Auditoria v4.0
+
+### A. Distinção entre Upside e Margem de Segurança
+No ecossistema Fin, a relação entre o Preço Justo de Valuation ($V$) e o Preço Atual de Mercado ($P$) é calculada com rigor matemático de domínio:
+
+$$\text{Upside (\%)} = \left(\frac{V - P}{P}\right) \times 100$$
+
+$$\text{Margem de Segurança (\%)} = \max\left(0, \left(\frac{V - P}{V}\right) \times 100\right), \quad \forall V > P > 0$$
+
+> **Regra de Domínio:** A margem de segurança nunca ultrapassa 100% para preços de mercado positivos. O upside expressa o ganho potencial sobre o custo de aquisição, enquanto a margem de segurança expressa a proteção em relação ao valor intrínseco.
+
+### B. Time-Weighted Return (TWR) — Retorno Ponderado pelo Tempo
+No simulador e na gestão de carteiras, aportes e resgates externos não devem inflar artificialmente a taxa de retorno do gestor/investidor:
+
+$$\text{TWR} = \prod_{t=1}^{T} \left(1 + R_t\right) - 1, \quad \text{onde } R_t = \frac{V_t^{\text{antes do aporte}} - V_{t-1}}{V_{t-1}}$$
+
+### C. Volatilidade Real via Retornos Logarítmicos
+Calculada a partir de cotações diárias reais de fechamento ($P_t$):
+
+$$r_t = \ln\left(\frac{P_t}{P_{t-1}}\right), \quad \sigma_{\text{diária}} = \sqrt{\frac{1}{N-1}\sum_{t=1}^N (r_t - \bar{r})^2}, \quad \sigma_{\text{anualizada}} = \sigma_{\text{diária}} \times \sqrt{252}$$
+
+### D. Corredor Causal de P/L do IBOV (Zero Lookahead Bias)
+Para evitar viés de antecipação histórica nas análises de sobrecompra e sobrevenda do Ibovespa, a distribuição estatística de cada ponto no tempo utiliza estritamente uma janela móvel retroativa de 60 meses:
+
+$$\mu_t = \frac{1}{60}\sum_{k=0}^{59} \text{PL}_{t-k}, \quad \sigma_t = \sqrt{\frac{1}{59}\sum_{k=0}^{59} (\text{PL}_{t-k} - \mu_t)^2}, \quad \text{Banda}_{\pm 1\sigma}(t) = \mu_t \pm \sigma_t$$
+
+---
+
 ## 🔗 Referências Cruzadas
 - [[REA_Oceans14_e_Modelos_Valuation|REA Oceans14 e Modelos de Valuation]]
 - [[Especificacao_APIs_FastAPI_e_Routers|Especificação das APIs FastAPI]]

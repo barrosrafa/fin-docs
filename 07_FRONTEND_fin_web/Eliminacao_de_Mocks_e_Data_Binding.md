@@ -127,6 +127,31 @@ export function AssetCardSkeleton() {
 
 ---
 
+## 🔒 Saneamento de Segurança e UX na Auditoria v4.0
+
+Na auditoria integral v4.0, foram eliminados os últimos resquícios de comportamento simulado no cliente:
+
+1. **Paywall Seguro sem Vazamento de DOM:** O componente `PaywallGate` foi refatorado para renderizar `previewFallback` com atributos `aria-hidden="true"` e `inert=""`, impedindo que usuários inspecionem ou leiam via leitores de tela relatórios analíticos confidenciais Pro antes da assinatura.
+2. **Checkout Seguro Conectado:** O modal de assinaturas em `/premium` substituiu `alert()` por chamadas reais a `/billing/subscribe`, exibindo QR Code PIX renderizado e chave copia-e-cola com tratamento de autenticação.
+3. **Sincronização com a URL:** Os filtros de `/acoes` (`?q=&setor=`), do Screener (`?q=&type=&minDY=&maxPVP=`) e as abas analíticas (`?tab=`) agora persistem na barra de endereços, garantindo compartilhamento direto e respeito ao botão Voltar do navegador.
+4. **Respeito a Vestibulopatias:** O ticker de cotações agora respeita `@media (prefers-reduced-motion: reduce)`, parando animações contínuas para usuários com sensibilidade visual.
+5. **Roteamento Canônico:** O helper `resolveAssetHref(ticker, type)` direciona cada classe para seu cockpit especializado (`/fiis/` para fundos imobiliários, `/etfs/` para ETFs, `/acoes/` para companhias abertas e `/indicadores-economicos` para índices como IBOV e IFIX).
+
+---
+
+## ⚡ Eliminação do `cache: "no-store"` Universal e Cache na Borda (Etapa 1 — 28/10/2026)
+
+Na Etapa 1 de Confiabilidade, o cliente HTTP universal [`src/lib/api.ts`](https://github.com/barrosrafa/fin-web/blob/main/src/lib/api.ts) foi refatorado para habilitar a distribuição estática e cache compartilhado na CDN:
+
+1. **Cache Granular:** A diretiva fixa `cache: "no-store"` foi substituída por lógica dinâmica:
+   - Requisições anônimas/públicas recebem `cache: "default"` (permitindo cache de borda pela CDN e pelo navegador, aderente aos cabeçalhos HTTP do servidor).
+   - Requisições autenticadas por Bearer Token continuam com `cache: "no-store"` para segurança de carteiras e dados privados.
+2. **Desacoplamento do Render Free:** Visitantes anônimos não disparam requisições síncronas bloqueantes ao backend, eliminando a degradação provocada pelo cold start da API.
+3. **Build Homologado Next.js 16:** A esteira de produção gera 84 rotas estáticas pré-renderizadas (SSG/ISR) em 2.0s com TypeScript 5 e Turbopack.
+4. **CI/CD Dedicado:** Implementado [`.github/workflows/ci.yml`](https://github.com/barrosrafa/fin-web/blob/main/.github/workflows/ci.yml) executando instalação com pnpm e compilação completa do Next.js.
+
+---
+
 ## 🔗 Referências Cruzadas
 - [[Arquitetura_Nextjs_App_Router_e_Tokens|Arquitetura Next.js e Tokens]]
 - [[Catalogo_Telas_Rotas_e_Componentes|Catálogo de Telas e Rotas]]

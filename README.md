@@ -66,6 +66,7 @@ O registro cronológico, exaustivo e sem omissões de todas as 23 conversas fund
 
 ### 🏛️ [02. Arquitetura & Sistema](./02_ARQUITETURA_E_SISTEMA/Arquitetura_Geral_Ecossistema_Fin.md)
 Padrões arquiteturais, consistência transacional e infraestrutura:
+- **[ADR 001: Evolução da Plataforma (Status Invest + Clube FII + brapi via CDN-First)](./02_ARQUITETURA_E_SISTEMA/ADR_001_Evolucao_Triade_StatusInvest_ClubeFII_brapi_CDN_First.md)**: Desacoplamento arquitetural, snapshots versionados na CDN, eliminação de dados sintéticos e orquestração autônoma.
 - **[Arquitetura Geral do Ecossistema Fin](./02_ARQUITETURA_E_SISTEMA/Arquitetura_Geral_Ecossistema_Fin.md)**: Topologia, limites de fronteira e os 5 invariantes invioláveis.
 - **[Arquitetura Financeira de Missão Crítica (Síntese)](./02_ARQUITETURA_E_SISTEMA/Arquitetura_Financeira_Missao_Critica.md)**: Ledger de partidas dobradas (soma zero em SQL), Saga orquestrada, Outbox/CDC e idempotência SHA-256.
 - **[Especificação Normativa de Missão Crítica & Auditoria](./02_ARQUITETURA_E_SISTEMA/Especificacao_Normativa_Missao_Critica_Auditoria.md)**: Documento normativo executivo com contratos, DDLs deferred e regras de auditoria.
@@ -132,8 +133,10 @@ Interface moderna em Next.js 15:
 
 ---
 
-### 🛡️ [08. Auditorias, Testes & Pentest](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Executivo_Auditoria_Producao.md)
+### 🛡️ [08. Auditorias, Testes & Pentest](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Homologacao_Etapa_1_Confiabilidade_e_Desacoplamento.md)
 Validação de qualidade, segurança e planos futuros:
+- **[Relatório de Homologação da Etapa 1: Confiabilidade & Desacoplamento](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Homologacao_Etapa_1_Confiabilidade_e_Desacoplamento.md)**: Resolução de P0/P1, eliminação de mocks e dados sintéticos, alinhamento de filas ARQ, ponte dbt Stage 15, CI real por repositório e 100% de testes verdes.
+- **[Relatório de Remediação Integral da Auditoria v4.0](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Auditoria_Remediacao_Integral_v4.md)**: Resolução completa dos 50 apontamentos (F01–F50) e 13 Quality Gates (G01–G13), homologados com 102 testes pytest, 52 testes ingestion e 6 testes Playwright E2E.
 - **[Relatório de Homologação e Remediação da Auditoria de QA](./08_AUDITORIAS_TESTES_E_PENTEST/Homologacao_Remediacao_Auditoria_QA.md)**: Resolução completa dos 10 defeitos (FIN-QA-01 a FIN-QA-10) com testes automatizados e validação Neon DB.
 - **[Relatório Executivo de Auditoria em Produção](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Executivo_Auditoria_Producao.md)**: Testes navegados no Chrome DevTools MCP, auditoria mobile (iPhone 14) e Lighthouse 98/100.
 - **[Relatório de Pentest e Vulnerabilidades](./08_AUDITORIAS_TESTES_E_PENTEST/Pentest_Segurança_e_Vulnerabilidades.md)**: Mitigação contra SQL Injection, XSS, CSRF, RLS e rate limiting.

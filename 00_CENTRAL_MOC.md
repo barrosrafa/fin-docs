@@ -124,6 +124,7 @@ Interface moderna e responsiva em Next.js 15:
 
 ### 🛡️ 8. Auditorias, Testes & Pentest
 Relatórios de validação, segurança e planos de melhoria:
+- [[Relatorio_Auditoria_Live_Frontend_CORS_e_Browser_Testing|Relatório de Auditoria: Validação da URL Frontend, Resolução de CORS e Testes de Navegador]]
 - [[Relatorio_Homologacao_Etapa_2_e_3_Autonomia_e_Snapshots_CDN|Relatório de Homologação das Etapas 2 e 3: Autonomia de Ingestão e Snapshots CDN/R2]]
 - [[Relatorio_Homologacao_Etapa_1_Confiabilidade_e_Desacoplamento|Relatório de Homologação da Etapa 1: Confiabilidade Imediata & Desacoplamento Arquitetural]]
 - [[Relatorio_Auditoria_Remediacao_Integral_v4|Relatório de Remediação Integral da Auditoria v4.0 (F01–F50 & G01–G13)]]

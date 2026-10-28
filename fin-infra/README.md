@@ -6,8 +6,8 @@ Repositório central de **Infraestrutura como Código (Terraform)**, **Pipelines
 - **Banco de Dados Relacionado:** `https://github.com/barrosrafa/fin-db` (PostgreSQL 18 / TimescaleDB no Neon)
 - **API & Worker:** `https://github.com/barrosrafa/fin-api` (FastAPI / ARQ / Redis)
 - **Ingestão & dbt:** `https://github.com/barrosrafa/fin-ingestion` (Scrapers REA & Pipelines)
-- **Especificação REA & Gateway:** [`docs/REA_ANALYSIS_AND_GATEWAY_SPEC.md`](docs/REA_ANALYSIS_AND_GATEWAY_SPEC.md)
-- **Documento Arquitetural:** [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
+- **Especificação REA & Gateway:** [`Analise_Anti_Bot_e_Gateway_Proxy.md`](../05_INGESTAO_E_PIPELINES_fin_ingestion/Analise_Anti_Bot_e_Gateway_Proxy.md)
+- **Documento Arquitetural:** [`Topologia_Infraestrutura_VPC_AWS.md`](../02_ARQUITETURA_E_SISTEMA/Topologia_Infraestrutura_VPC_AWS.md)
 
 ---
 

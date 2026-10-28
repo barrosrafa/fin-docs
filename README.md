@@ -53,7 +53,7 @@ Hub mestre de navegação com links diretos para todas as notas, tabelas e grafo
 
 ---
 
-### 📜 [01. Histórico & Trilha das 23 Conversas](./01_CONVERSAS_HISTORICO/)
+### 📜 [01. Histórico & Trilha das 23 Conversas](./01_CONVERSAS_HISTORICO/00_Linha_do_Tempo_e_Matriz_23_Conversas.md)
 O registro cronológico, exaustivo e sem omissões de todas as 23 conversas fundacionais do projeto:
 - **[Linha do Tempo e Matriz Unificada das 23 Conversas](./01_CONVERSAS_HISTORICO/00_Linha_do_Tempo_e_Matriz_23_Conversas.md)**: Tabela comparativa com ID, data, escopo, decisões e entregas.
 - **[Conversas 01 a 04](./01_CONVERSAS_HISTORICO/Conv_01_a_04_Fundacao_DDL_e_Arquitetura.md)**: Fundação no Neon PostgreSQL (273 tabelas, 36 hypertables) e arquitetura macro dos 5 repositórios.
@@ -64,46 +64,57 @@ O registro cronológico, exaustivo e sem omissões de todas as 23 conversas fund
 
 ---
 
-### 🏛️ [02. Arquitetura & Sistema](./02_ARQUITETURA_E_SISTEMA/)
+### 🏛️ [02. Arquitetura & Sistema](./02_ARQUITETURA_E_SISTEMA/Arquitetura_Geral_Ecossistema_Fin.md)
 Padrões arquiteturais, consistência transacional e infraestrutura:
 - **[Arquitetura Geral do Ecossistema Fin](./02_ARQUITETURA_E_SISTEMA/Arquitetura_Geral_Ecossistema_Fin.md)**: Topologia, limites de fronteira e os 5 invariantes invioláveis.
-- **[Arquitetura Financeira de Missão Crítica](./02_ARQUITETURA_E_SISTEMA/Arquitetura_Financeira_Missao_Critica.md)**: Ledger de partidas dobradas (soma zero em SQL), Saga orquestrada, Outbox/CDC e idempotência SHA-256.
+- **[Arquitetura Financeira de Missão Crítica (Síntese)](./02_ARQUITETURA_E_SISTEMA/Arquitetura_Financeira_Missao_Critica.md)**: Ledger de partidas dobradas (soma zero em SQL), Saga orquestrada, Outbox/CDC e idempotência SHA-256.
+- **[Especificação Normativa de Missão Crítica & Auditoria](./02_ARQUITETURA_E_SISTEMA/Especificacao_Normativa_Missao_Critica_Auditoria.md)**: Documento normativo executivo com contratos, DDLs deferred e regras de auditoria.
 - **[A Tese da Carteira Invisível & Dual-Engine](./02_ARQUITETURA_E_SISTEMA/Tese_Carteira_Invisivel_Dual_Engine.md)**: O problema da falsa diversificação e o motor de Look-Through de risco de crédito.
 - **[Deploy Cloud 100% Gratuito](./02_ARQUITETURA_E_SISTEMA/Deployment_Cloud_Gratuito_Zero_Cost.md)**: Vercel + Koyeb (anti-hibernação) + Neon + Upstash Redis + GitHub Actions.
 - **[Topologia de Produção e Observabilidade](./02_ARQUITETURA_E_SISTEMA/Topologia_Producao_e_Observabilidade.md)**: Docker Compose, Traefik v3, Prometheus, Grafana e Loki.
+- **[Topologia de Infraestrutura & Plataforma AWS](./02_ARQUITETURA_E_SISTEMA/Topologia_Infraestrutura_VPC_AWS.md)**: Especificação de VPC, subnets públicas/privadas e isolamento de segurança AWS.
 
 ---
 
-### 🕵️ [03. Engenharia Reversa de Aplicação (REA)](./03_ENGENHARIA_REVERSA_REA/)
+### 🕵️ [03. Engenharia Reversa de Aplicação (REA)](./03_ENGENHARIA_REVERSA_REA/Matriz_Unificada_12_Portais_e_Gaps.md)
 Descoberta de APIs, raspagem e linhagem de dados dos portais e reguladores:
 - **[Matriz Unificada dos 12 Portais & Gaps](./03_ENGENHARIA_REVERSA_REA/Matriz_Unificada_12_Portais_e_Gaps.md)**: Tabela comparativa de cobertura nos 6 domínios de negócio.
-- **[REA Fundamentus: Linhagem e Endpoints Ocultos](./03_ENGENHARIA_REVERSA_REA/REA_Fundamentus_Linhagem_e_Endpoints_Ocultos.md)**: 13 rotas, endpoints em JSON (`cot_hist.php`, `resultado.php`) e tratamento de bancos vs indústrias.
-- **[REA Status Invest, Investidor10 e Fundamentei](./03_ENGENHARIA_REVERSA_REA/REA_Status_Invest_e_Investidor10.md)**: Gregas de opções, remuneração FRE CVM, segmentação geográfica e Apollo GraphQL (102 KPIs).
+- **[Matriz de Cobertura dos 12 Portais (v3.4)](./03_ENGENHARIA_REVERSA_REA/Cobertura_12_Sites_Matriz_v3_4.md)**: Mapeamento campo a campo dos 12 portais de dados financeiros.
+- **[Especificação de Contratos de Dados (12 Sites & Órgãos)](./03_ENGENHARIA_REVERSA_REA/Especificacao_Contratos_Dados_12_Sites_e_Orgaos.md)**: Engenharia reversa técnica de contratos e endpoints.
+- **[Especificação dos Pipelines de Ingestão REA](./03_ENGENHARIA_REVERSA_REA/Especificacao_Pipelines_Ingestao_REA.md)**: Design dos pipelines de extração e contratos upstream.
+- **[REA Fundamentus: Linhagem e Endpoints Ocultos](./03_ENGENHARIA_REVERSA_REA/REA_Fundamentus_Linhagem_e_Endpoints_Ocultos.md)**: 13 rotas, endpoints em JSON (`cot_hist.php`, `resultado.php`) e bancos vs indústrias.
+- **[REA Status Invest, Investidor10 e Fundamentei](./03_ENGENHARIA_REVERSA_REA/REA_Status_Invest_e_Investidor10.md)**: Gregas de opções, remuneração FRE CVM, segmentação geográfica e Apollo GraphQL.
 - **[REA Oceans14 & Modelos de Valuation Quantitativo](./03_ENGENHARIA_REVERSA_REA/REA_Oceans14_e_Modelos_Valuation.md)**: Fórmulas de Benjamin Graham, Décio Bazin, Gordon e DCF (WACC).
-- **[REA Análise de Ações: Consenso e Projeções](./03_ENGENHARIA_REVERSA_REA/REA_Analise_de_Acoes_Preco_Justo.md)**: Consenso de corretoras, dividendos futuros e score de saúde (0 a 100).
+- **[REA Análise de Ações: Consenso e Projeções](./03_ENGENHARIA_REVERSA_REA/REA_Analise_de_Acoes_Preco_Justo.md)**: Consenso de corretoras, dividendos futuros e score de saúde.
 - **[REA ETFs Brasil: Cestas e Tracking Error](./03_ENGENHARIA_REVERSA_REA/REA_ETFs_Brasil_e_Indices.md)**: Decomposição de carteiras teóricas, Tracking Error anualizado e taxas.
 - **[REA Órgãos Oficiais: B3, CVM, BCB e ANBIMA](./03_ENGENHARIA_REVERSA_REA/REA_Orgaos_Oficiais_B3_CVM_BCB_ANBIMA.md)**: Formatos BVBG, COTAHIST, DFP/ITR, CVM 175, API SGS e curvas ETTJ.
 
 ---
 
-### 📦 [04. Engenharia de Dados (`fin-db`)](./04_ENGENHARIA_DE_DADOS_fin_db/)
+### 📦 [04. Engenharia de Dados (`fin-db`)](./04_ENGENHARIA_DE_DADOS_fin_db/Modelagem_Relacional_12_Schemas.md)
 Modelagem relacional e séries temporais no PostgreSQL 18:
 - **[Modelagem Relacional dos 12 Schemas](./04_ENGENHARIA_DE_DADOS_fin_db/Modelagem_Relacional_12_Schemas.md)**: Dicionário das 303 tabelas em `canonical`, `core`, `market`, `asset_details`, `analytics`, etc.
+- **[Pacote Completo DIYFin — DDL SQL Original](./04_ENGENHARIA_DE_DADOS_fin_db/01_Pacote_Completo_DIYFin_DDL_Original.md)**: DDL SQL integral original das 303 tabelas e schemas.
+- **[Melhorias DDL v3.1 — Índices e Constraints](./04_ENGENHARIA_DE_DADOS_fin_db/02_Melhorias_DDL_v3_1_Indices_Constraints.md)**: Refinamento de constraints de integridade referencial e índices temporais.
+- **[Análise DDL v3.2 — Particionamento e Otimização](./04_ENGENHARIA_DE_DADOS_fin_db/03_Melhorias_DDL_v3_2_Particionamento.md)**: Particionamento e otimização para grandes volumes.
+- **[Complementos Sites Análise v3.3](./04_ENGENHARIA_DE_DADOS_fin_db/04_Complementos_Sites_Analise_v3_3.md)**: Expansão de colunas e métricas financeiras.
 - **[Hypertables TimescaleDB & Séries Temporais](./04_ENGENHARIA_DE_DADOS_fin_db/Hypertables_TimescaleDB_e_Series_Temporais.md)**: As 36 hypertables, intervalos de chunk e consultas com `time_bucket()`.
 - **[Catálogo de 1.242 Ativos Reais da B3](./04_ENGENHARIA_DE_DADOS_fin_db/Catalogo_1242_Ativos_e_Chaves_Naturais.md)**: Ações, FIIs, BDRs, ETFs e política de chaves naturais anti-duplicação.
 - **[Histórico de Migrações SQL (v1.0 ao v4.0)](./04_ENGENHARIA_DE_DADOS_fin_db/Migrations_e_Evolucao_DDL_v3_1_a_Stage12.md)**: Evolução dos 13 estágios de scripts DDL.
 
 ---
 
-### 🔄 [05. Ingestão & Pipelines (`fin-ingestion`)](./05_INGESTAO_E_PIPELINES_fin_ingestion/)
+### 🔄 [05. Ingestão & Pipelines (`fin-ingestion`)](./05_INGESTAO_E_PIPELINES_fin_ingestion/Plano_Mestre_Abastecimento_10_Pipelines.md)
 Mecanismos de extração assíncrona e transformação:
 - **[Plano Mestre de Abastecimento: 10 Pipelines](./05_INGESTAO_E_PIPELINES_fin_ingestion/Plano_Mestre_Abastecimento_10_Pipelines.md)**: Arquitetura de aquisição contínua, high-watermarks e checkpoints.
 - **[Especificação dos Scrapers, Coletores e dbt](./05_INGESTAO_E_PIPELINES_fin_ingestion/Especificacao_Tecnica_Scrapers_e_Coletores.md)**: HTTPX assíncrono, fallback Playwright e pouso em `raw.payload`.
+- **[Especificação de Gateway e Egress de Scraping](./05_INGESTAO_E_PIPELINES_fin_ingestion/Especificacao_Gateway_Egress_Scraping.md)**: Especificação de infraestrutura de gateway e proteção de egress.
 - **[Malha de Proxies Rotativos e Anti-Bot](./05_INGESTAO_E_PIPELINES_fin_ingestion/Anti_Bot_Proxies_Rotativos_e_Evasao.md)**: Proxies residenciais, spoofing de TLS (JA3/JA4) e evasão de Cloudflare.
+- **[Análise Anti-Bot e Gateway Proxy](./05_INGESTAO_E_PIPELINES_fin_ingestion/Analise_Anti_Bot_e_Gateway_Proxy.md)**: Especificação detalhada da malha de scraping e proxies rotativos.
 
 ---
 
-### ⚙️ [06. Backend & APIs REST (`fin-api`)](./06_BACKEND_E_APIS_fin_api/)
+### ⚙️ [06. Backend & APIs REST (`fin-api`)](./06_BACKEND_E_APIS_fin_api/Especificacao_APIs_FastAPI_e_Routers.md)
 Camada de serviços assíncrona e computação financeira:
 - **[Especificação das APIs FastAPI e Routers](./06_BACKEND_E_APIS_fin_api/Especificacao_APIs_FastAPI_e_Routers.md)**: Roteadores `/health`, `/assets`, `/market`, `/portfolio`, `/valuation`.
 - **[Cache-Aside no Redis, SWR e Idempotência](./06_BACKEND_E_APIS_fin_api/Cache_Aside_Redis_e_Idempotencia.md)**: Stale-While-Revalidate, TTL por volatilidade e tokens SHA-256.
@@ -111,19 +122,29 @@ Camada de serviços assíncrona e computação financeira:
 
 ---
 
-### 🖥️ [07. Frontend Web (`fin-web`)](./07_FRONTEND_fin_web/)
+### 🖥️ [07. Frontend Web (`fin-web`)](./07_FRONTEND_fin_web/Arquitetura_Nextjs_App_Router_e_Tokens.md)
 Interface moderna em Next.js 15:
 - **[Arquitetura Next.js 15 e Design Tokens](./07_FRONTEND_fin_web/Arquitetura_Nextjs_App_Router_e_Tokens.md)**: Server Components, React 19, Tailwind CSS e tipografia financeira monoespaçada.
+- **[Planejamento de Telas & Design System Original](./07_FRONTEND_fin_web/Planejamento_Telas_e_Design_System_Original.md)**: Planejamento detalhado de telas, rotas e componentes UI.
 - **[Eliminação de Mocks e Vinculação de Dados Reais](./07_FRONTEND_fin_web/Eliminacao_de_Mocks_e_Data_Binding.md)**: Validação com Zod, hooks SWR e skeletons de carregamento.
 - **[Catálogo de Telas, Rotas e Componentes](./07_FRONTEND_fin_web/Catalogo_Telas_Rotas_e_Componentes.md)**: Dashboard, Screeners de Ações/FIIs, Páginas de Detalhes e Comparador.
 
 ---
 
-### 🛡️ [08. Auditorias, Testes & Pentest](./08_AUDITORIAS_TESTES_E_PENTEST/)
+### 🛡️ [08. Auditorias, Testes & Pentest](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Executivo_Auditoria_Producao.md)
 Validação de qualidade, segurança e planos futuros:
 - **[Relatório Executivo de Auditoria em Produção](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Executivo_Auditoria_Producao.md)**: Testes navegados no Chrome DevTools MCP, auditoria mobile (iPhone 14) e Lighthouse 98/100.
 - **[Relatório de Pentest e Vulnerabilidades](./08_AUDITORIAS_TESTES_E_PENTEST/Pentest_Segurança_e_Vulnerabilidades.md)**: Mitigação contra SQL Injection, XSS, CSRF, RLS e rate limiting.
 - **[Plano Diretor de Melhorias Contínuas: Sprints I e II](./08_AUDITORIAS_TESTES_E_PENTEST/Plano_Diretor_Melhorias_Sprint_I_e_II.md)**: Entregas da Sprint I e roadmap priorizado da Sprint II.
+
+---
+
+### 🎯 [09. Planos & Especificações Técnicas (Superpowers)](./09_PLANOS_E_SPECS_SUPERPOWERS/specs/2026-10-26-fin-api-design.md)
+Roteiros detalhados de implementação e especificações formais de design:
+- **[fin-api Design Specification](./09_PLANOS_E_SPECS_SUPERPOWERS/specs/2026-10-26-fin-api-design.md)**: Especificação de arquitetura da API.
+- **[Portfolio Graph Reconciliation Design](./09_PLANOS_E_SPECS_SUPERPOWERS/specs/2026-10-26-portfolio-graph-reconciliation-design.md)**: Algoritmo de reconciliação de custódia em grafo.
+- **[Cloud-Free Deployment Design](./09_PLANOS_E_SPECS_SUPERPOWERS/specs/2026-10-28-cloud-free-deployment-design.md)**: Tese e topologia de deploy custo zero.
+- **[Planos de Implementação (9 roteiros em `plans/`)](./09_PLANOS_E_SPECS_SUPERPOWERS/plans/)**: Cobertura full-stack, pentest, coletores dos 12 sites e features financeiras.
 
 ---
 

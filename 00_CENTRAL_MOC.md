@@ -27,12 +27,14 @@ graph TD
     MOC --> C6["⚙️ 06. Backend & APIs (fin-api)"]
     MOC --> C7["🖥️ 07. Frontend Web (fin-web)"]
     MOC --> C8["🛡️ 08. Auditorias, Testes & Pentest"]
+    MOC --> C9["🎯 09. Planos & Specs (Superpowers)"]
 
     C1 --> C2 & C3 & C4 & C5 & C6 & C7 & C8
     C3 --> C4 & C5 & C6 & C7
     C4 <--> C6
     C5 --> C4
     C6 <--> C7
+    C9 --> C2 & C4 & C6 & C8
 ```
 
 ---
@@ -53,16 +55,21 @@ O registro cronológico, fiel e detalhado de todas as 23 conversas originais:
 ### 🏛️ 2. Arquitetura & Sistema
 Padrões estruturais, consistência transacional e infraestrutura:
 - [[Arquitetura_Geral_Ecossistema_Fin|Arquitetura Geral do Ecossistema Fin]]
-- [[Arquitetura_Financeira_Missao_Critica|Arquitetura Financeira de Missão Crítica & Ledger de Partidas Dobradas]]
+- [[Arquitetura_Financeira_Missao_Critica|Arquitetura Financeira de Missão Crítica & Ledger de Partidas Dobradas (Síntese)]]
+- [[Especificacao_Normativa_Missao_Critica_Auditoria|Especificação Normativa de Missão Crítica & Auditoria Transacional]]
 - [[Tese_Carteira_Invisivel_Dual_Engine|A Tese da Carteira Invisível & Arquitetura Dual-Engine]]
 - [[Deployment_Cloud_Gratuito_Zero_Cost|Deploy Cloud 100% Gratuito (Zero-Cost Production)]]
 - [[Topologia_Producao_e_Observabilidade|Topologia de Produção, Docker Compose e Observabilidade LGTM]]
+- [[Topologia_Infraestrutura_VPC_AWS|Topologia de Infraestrutura & Plataforma AWS (fin-infra)]]
 
 ---
 
 ### 🕵️ 3. Engenharia Reversa de Aplicação (REA)
 Análise aprofundada dos 12 portais de investimentos e 4 órgãos oficiais:
 - [[Matriz_Unificada_12_Portais_e_Gaps|Matriz Unificada dos 12 Portais & Análise de Gaps]]
+- [[Cobertura_12_Sites_Matriz_v3_4|Matriz de Cobertura dos 12 Portais (v3.4)]]
+- [[Especificacao_Contratos_Dados_12_Sites_e_Orgaos|Especificação Técnica de Contratos de Dados (12 Sites & Órgãos)]]
+- [[Especificacao_Pipelines_Ingestao_REA|Especificação dos Pipelines de Ingestão REA]]
 - [[REA_Fundamentus_Linhagem_e_Endpoints_Ocultos|REA Fundamentus: Linhagem Upstream e Endpoints Ocultos]]
 - [[REA_Status_Invest_e_Investidor10|REA Status Invest, Investidor10 e Fundamentei]]
 - [[REA_Oceans14_e_Modelos_Valuation|REA Oceans14 & Modelos de Valuation Quantitativo]]
@@ -75,6 +82,10 @@ Análise aprofundada dos 12 portais de investimentos e 4 órgãos oficiais:
 ### 📦 4. Engenharia de Dados (`fin-db`)
 Modelo relacional, séries temporais e governança no PostgreSQL 18:
 - [[Modelagem_Relacional_12_Schemas|Modelagem Relacional & Dicionário dos 12 Schemas]]
+- [[01_Pacote_Completo_DIYFin_DDL_Original|Pacote Completo DIYFin — DDL SQL & Dicionário de Dados Original]]
+- [[02_Melhorias_DDL_v3_1_Indices_Constraints|Melhorias DDL v3.1 — Índices e Constraints]]
+- [[03_Melhorias_DDL_v3_2_Particionamento|Análise DDL v3.2 — Particionamento e Otimização]]
+- [[04_Complementos_Sites_Analise_v3_3|Complementos Sites Análise v3.3 — Expansão de Schemas]]
 - [[Hypertables_TimescaleDB_e_Series_Temporais|Hypertables TimescaleDB & Séries Temporais]]
 - [[Catalogo_1242_Ativos_e_Chaves_Naturais|Catálogo de 1.242 Ativos Reais da B3 & Política de Chaves Naturais]]
 - [[Migrations_e_Evolucao_DDL_v3_1_a_Stage12|Histórico de Migrações SQL (v1.0 ao Stage 12 v4.0)]]
@@ -85,7 +96,9 @@ Modelo relacional, séries temporais e governança no PostgreSQL 18:
 Motores de captura assíncrona e transformação:
 - [[Plano_Mestre_Abastecimento_10_Pipelines|Plano Mestre de Abastecimento: Os 10 Pipelines Automatizados]]
 - [[Especificacao_Tecnica_Scrapers_e_Coletores|Especificação Técnica dos Scrapers, Coletores e dbt]]
+- [[Especificacao_Gateway_Egress_Scraping|Especificação de Gateway e Egress de Scraping]]
 - [[Anti_Bot_Proxies_Rotativos_e_Evasao|Malha de Proxies Rotativos, Anti-Bot e Evasão]]
+- [[Analise_Anti_Bot_e_Gateway_Proxy|Análise Anti-Bot e Gateway Proxy]]
 
 ---
 
@@ -100,6 +113,7 @@ Camada de serviços assíncrona, cache e matemática financeira:
 ### 🖥️ 7. Frontend Web (`fin-web`)
 Interface moderna e responsiva em Next.js 15:
 - [[Arquitetura_Nextjs_App_Router_e_Tokens|Arquitetura Next.js 15, React 19 e Design Tokens]]
+- [[Planejamento_Telas_e_Design_System_Original|Planejamento de Telas & Design System Original]]
 - [[Eliminacao_de_Mocks_e_Data_Binding|Eliminação de Mocks e Vinculação de Dados Reais]]
 - [[Catalogo_Telas_Rotas_e_Componentes|Catálogo de Telas, Rotas e Componentes de Interface]]
 
@@ -110,6 +124,27 @@ Relatórios de validação, segurança e planos de melhoria:
 - [[Relatorio_Executivo_Auditoria_Producao|Relatório Executivo de Auditoria em Modo de Produção]]
 - [[Pentest_Segurança_e_Vulnerabilidades|Relatório de Pentest, Segurança e Vulnerabilidades]]
 - [[Plano_Diretor_Melhorias_Sprint_I_e_II|Plano Diretor de Melhorias Contínuas: Sprints I e II]]
+
+---
+
+### 🎯 9. Planos e Especificações Técnicas (Superpowers)
+Roteiros detalhados de implementação e especificações de design arquitetural:
+
+#### 📋 Planos de Implementação (`plans/`)
+- [[09_PLANOS_E_SPECS_SUPERPOWERS/plans/2026-10-26-complementos-sites-analise|Complementos Sites Análise Implementation Plan]]
+- [[09_PLANOS_E_SPECS_SUPERPOWERS/plans/2026-10-26-fin-api-implementation|fin-api Implementation Plan]]
+- [[09_PLANOS_E_SPECS_SUPERPOWERS/plans/2026-10-26-financial-features-implementation|Financial Features Implementation Plan]]
+- [[09_PLANOS_E_SPECS_SUPERPOWERS/plans/2026-10-26-portfolio-graph-reconciliation-implementation|Portfolio Graph Reconciliation Implementation Plan]]
+- [[09_PLANOS_E_SPECS_SUPERPOWERS/plans/2026-10-26-rea-12-sites-v3.4|REA 12 Sites v3.4 Implementation Plan]]
+- [[09_PLANOS_E_SPECS_SUPERPOWERS/plans/2026-10-27-analise-de-acoes-coverage-implementation|Análise de Ações Full-Stack Coverage Implementation Plan]]
+- [[09_PLANOS_E_SPECS_SUPERPOWERS/plans/2026-10-27-etfs-brasil-coverage-implementation|ETFs Brasil Coverage Implementation Plan]]
+- [[09_PLANOS_E_SPECS_SUPERPOWERS/plans/2026-10-27-fin-ecosystem-comprehensive-implementation-and-pentest|Fin Ecosystem Comprehensive Implementation and Pentest Plan]]
+- [[09_PLANOS_E_SPECS_SUPERPOWERS/plans/2026-10-27-oceans14-comprehensive-implementation|Oceans14 Full-Stack Coverage Implementation Plan]]
+
+#### 📐 Especificações de Design Arquitetural (`specs/`)
+- [[09_PLANOS_E_SPECS_SUPERPOWERS/specs/2026-10-26-fin-api-design|fin-api Design Specification]]
+- [[09_PLANOS_E_SPECS_SUPERPOWERS/specs/2026-10-26-portfolio-graph-reconciliation-design|Portfolio Graph Reconciliation Design Specification]]
+- [[09_PLANOS_E_SPECS_SUPERPOWERS/specs/2026-10-28-cloud-free-deployment-design|Cloud-Free Deployment Design Specification]]
 
 ---
 

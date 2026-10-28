@@ -4,7 +4,7 @@ Pipeline de dados resiliente e modular para coleta, enriquecimento, cálculos an
 
 - **Repositório:** `https://github.com/barrosrafa/fin-ingestion`
 - **Banco de Dados Relacionado:** `https://github.com/barrosrafa/fin-db` (PostgreSQL 18 / TimescaleDB no Neon)
-- **Especificação REA:** [`docs/REA_SPECIFICATION.md`](docs/REA_SPECIFICATION.md)
+- **Especificação REA:** [`Especificacao_Pipelines_Ingestao_REA.md`](../03_ENGENHARIA_REVERSA_REA/Especificacao_Pipelines_Ingestao_REA.md)
 
 ---
 

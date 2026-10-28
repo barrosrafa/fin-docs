@@ -8,7 +8,7 @@
 **Repositório de Ingestão:** `https://github.com/barrosrafa/fin-ingestion`  
 
 Para a especificação completa de engenharia reversa dos 12 sites e implementação do gateway de egress, consulte a documentação detalhada no repositório `fin-infra`:
-- [`fin-infra/docs/REA_ANALYSIS_AND_GATEWAY_SPEC.md`](file:///Users/rafaelaparecido/fin-infra/docs/REA_ANALYSIS_AND_GATEWAY_SPEC.md)
+- [`Analise_Anti_Bot_e_Gateway_Proxy.md`](./Analise_Anti_Bot_e_Gateway_Proxy.md)
 
 ### Resumo dos Perfis de Egress por Fonte:
 1. **Perfil 1 (Direct VPC NAT):** B3, CVM, BCB, ETFs Brasil.

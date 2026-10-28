@@ -124,6 +124,7 @@ Interface moderna e responsiva em Next.js 15:
 
 ### 🛡️ 8. Auditorias, Testes & Pentest
 Relatórios de validação, segurança e planos de melhoria:
+- [[2026-10-28_RELATORIO_PARIDADE_FUNCIONAL_E_SANEAMENTO_COMPLETO|Relatório Técnico de Paridade Funcional, Saneamento de Mocks e Engenharia Analítica v5.0 (Fundamentus, Oceans14, Análise de Ações, ETFs Brasil)]]
 - [[Relatorio_Auditoria_Live_Frontend_CORS_e_Browser_Testing|Relatório de Auditoria: Validação da URL Frontend, Resolução de CORS e Testes de Navegador]]
 - [[Relatorio_Homologacao_Etapa_2_e_3_Autonomia_e_Snapshots_CDN|Relatório de Homologação das Etapas 2 e 3: Autonomia de Ingestão e Snapshots CDN/R2]]
 - [[Relatorio_Homologacao_Etapa_1_Confiabilidade_e_Desacoplamento|Relatório de Homologação da Etapa 1: Confiabilidade Imediata & Desacoplamento Arquitetural]]
@@ -139,6 +140,7 @@ Relatórios de validação, segurança e planos de melhoria:
 Roteiros detalhados de implementação e especificações de design arquitetural:
 
 #### 📋 Planos de Implementação (`plans/`)
+- [[09_PLANOS_E_SPECS_SUPERPOWERS/plans/2026-10-28-comprehensive-functional-parity-and-quality|Comprehensive Functional Parity and Quality Implementation Plan (Fases 1 a 4)]]
 - [[09_PLANOS_E_SPECS_SUPERPOWERS/plans/2026-10-28-qa-audit-remediation|QA Audit Remediation Implementation Plan (FIN-QA-01..10)]]
 - [[09_PLANOS_E_SPECS_SUPERPOWERS/plans/2026-10-26-complementos-sites-analise|Complementos Sites Análise Implementation Plan]]
 - [[09_PLANOS_E_SPECS_SUPERPOWERS/plans/2026-10-26-fin-api-implementation|fin-api Implementation Plan]]

@@ -133,6 +133,7 @@ Interface moderna em Next.js 15:
 
 ### 🛡️ [08. Auditorias, Testes & Pentest](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Executivo_Auditoria_Producao.md)
 Validação de qualidade, segurança e planos futuros:
+- **[Relatório de Homologação e Remediação da Auditoria de QA](./08_AUDITORIAS_TESTES_E_PENTEST/Homologacao_Remediacao_Auditoria_QA.md)**: Resolução completa dos 10 defeitos (FIN-QA-01 a FIN-QA-10) com testes automatizados e validação Neon DB.
 - **[Relatório Executivo de Auditoria em Produção](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Executivo_Auditoria_Producao.md)**: Testes navegados no Chrome DevTools MCP, auditoria mobile (iPhone 14) e Lighthouse 98/100.
 - **[Relatório de Pentest e Vulnerabilidades](./08_AUDITORIAS_TESTES_E_PENTEST/Pentest_Segurança_e_Vulnerabilidades.md)**: Mitigação contra SQL Injection, XSS, CSRF, RLS e rate limiting.
 - **[Plano Diretor de Melhorias Contínuas: Sprints I e II](./08_AUDITORIAS_TESTES_E_PENTEST/Plano_Diretor_Melhorias_Sprint_I_e_II.md)**: Entregas da Sprint I e roadmap priorizado da Sprint II.

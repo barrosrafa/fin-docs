@@ -121,6 +121,7 @@ Interface moderna e responsiva em Next.js 15:
 
 ### 🛡️ 8. Auditorias, Testes & Pentest
 Relatórios de validação, segurança e planos de melhoria:
+- [[Homologacao_Remediacao_Auditoria_QA|Relatório de Homologação e Remediação da Auditoria de QA (FIN-QA-01..10)]]
 - [[Relatorio_Executivo_Auditoria_Producao|Relatório Executivo de Auditoria em Modo de Produção]]
 - [[Pentest_Segurança_e_Vulnerabilidades|Relatório de Pentest, Segurança e Vulnerabilidades]]
 - [[Plano_Diretor_Melhorias_Sprint_I_e_II|Plano Diretor de Melhorias Contínuas: Sprints I e II]]
@@ -131,6 +132,7 @@ Relatórios de validação, segurança e planos de melhoria:
 Roteiros detalhados de implementação e especificações de design arquitetural:
 
 #### 📋 Planos de Implementação (`plans/`)
+- [[09_PLANOS_E_SPECS_SUPERPOWERS/plans/2026-10-28-qa-audit-remediation|QA Audit Remediation Implementation Plan (FIN-QA-01..10)]]
 - [[09_PLANOS_E_SPECS_SUPERPOWERS/plans/2026-10-26-complementos-sites-analise|Complementos Sites Análise Implementation Plan]]
 - [[09_PLANOS_E_SPECS_SUPERPOWERS/plans/2026-10-26-fin-api-implementation|fin-api Implementation Plan]]
 - [[09_PLANOS_E_SPECS_SUPERPOWERS/plans/2026-10-26-financial-features-implementation|Financial Features Implementation Plan]]

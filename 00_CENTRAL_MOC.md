@@ -95,6 +95,7 @@ Modelo relacional, séries temporais e governança no PostgreSQL 18:
 
 ### 🔄 5. Ingestão & Pipelines (`fin-ingestion`)
 Motores de captura assíncrona e transformação:
+- [[Despachante_de_Tarefas_e_Publicacao_CDN_Snapshots|Despachante Autônomo de Tarefas (Task Dispatcher) e Publicador de Snapshots (CDN / R2)]]
 - [[Arquitetura_Autonoma_Fila_Postgres_Docker|Arquitetura Autônoma do fin-ingestion: Fila PostgreSQL, Workers e Docker]]
 - [[Plano_Mestre_Abastecimento_10_Pipelines|Plano Mestre de Abastecimento: Os 10 Pipelines Automatizados]]
 - [[Especificacao_Tecnica_Scrapers_e_Coletores|Especificação Técnica dos Scrapers, Coletores e dbt]]
@@ -123,6 +124,7 @@ Interface moderna e responsiva em Next.js 15:
 
 ### 🛡️ 8. Auditorias, Testes & Pentest
 Relatórios de validação, segurança e planos de melhoria:
+- [[Relatorio_Homologacao_Etapa_2_e_3_Autonomia_e_Snapshots_CDN|Relatório de Homologação das Etapas 2 e 3: Autonomia de Ingestão e Snapshots CDN/R2]]
 - [[Relatorio_Homologacao_Etapa_1_Confiabilidade_e_Desacoplamento|Relatório de Homologação da Etapa 1: Confiabilidade Imediata & Desacoplamento Arquitetural]]
 - [[Relatorio_Auditoria_Remediacao_Integral_v4|Relatório de Remediação Integral da Auditoria v4.0 (F01–F50 & G01–G13)]]
 - [[Homologacao_Remediacao_Auditoria_QA|Relatório de Homologação e Remediação da Auditoria de QA (FIN-QA-01..10)]]

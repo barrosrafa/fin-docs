@@ -107,6 +107,7 @@ Modelagem relacional e séries temporais no PostgreSQL 18:
 
 ### 🔄 [05. Ingestão & Pipelines (`fin-ingestion`)](./05_INGESTAO_E_PIPELINES_fin_ingestion/Plano_Mestre_Abastecimento_10_Pipelines.md)
 Mecanismos de extração assíncrona e transformação:
+- **[Despachante Autônomo de Tarefas e Publicador de Snapshots (CDN / R2)](./05_INGESTAO_E_PIPELINES_fin_ingestion/Despachante_de_Tarefas_e_Publicacao_CDN_Snapshots.md)**: TaskDispatcher com reserva transacional via `SKIP LOCKED`, circuit breakers, auditoria em `ingestion.ingestion_run` e exportação de snapshots versionados com hash SHA-256 para Cloudflare R2 e CDN.
 - **[Arquitetura Autônoma do fin-ingestion (Fila PostgreSQL & Docker)](./05_INGESTAO_E_PIPELINES_fin_ingestion/Arquitetura_Autonoma_Fila_Postgres_Docker.md)**: Fila persistente `SKIP LOCKED`, agendador com calendários de mercado, reconciliação de zumbis e workers em Docker.
 - **[Plano Mestre de Abastecimento: 10 Pipelines](./05_INGESTAO_E_PIPELINES_fin_ingestion/Plano_Mestre_Abastecimento_10_Pipelines.md)**: Arquitetura de aquisição contínua, high-watermarks e checkpoints.
 - **[Especificação dos Scrapers, Coletores e dbt](./05_INGESTAO_E_PIPELINES_fin_ingestion/Especificacao_Tecnica_Scrapers_e_Coletores.md)**: HTTPX assíncrono, fallback Playwright e pouso em `raw.payload`.
@@ -135,6 +136,7 @@ Interface moderna em Next.js 15:
 
 ### 🛡️ [08. Auditorias, Testes & Pentest](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Homologacao_Etapa_1_Confiabilidade_e_Desacoplamento.md)
 Validação de qualidade, segurança e planos futuros:
+- **[Relatório de Homologação das Etapas 2 e 3: Autonomia & Snapshots CDN](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Homologacao_Etapa_2_e_3_Autonomia_e_Snapshots_CDN.md)**: Homologação do TaskDispatcher, centralização de coletores, motor SnapshotExporter para Cloudflare R2 e Edge CDN, 63 testes unitários no ingestion e Next.js SSG/ISR.
 - **[Relatório de Homologação da Etapa 1: Confiabilidade & Desacoplamento](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Homologacao_Etapa_1_Confiabilidade_e_Desacoplamento.md)**: Resolução de P0/P1, eliminação de mocks e dados sintéticos, alinhamento de filas ARQ, ponte dbt Stage 15, CI real por repositório e 100% de testes verdes.
 - **[Relatório de Remediação Integral da Auditoria v4.0](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Auditoria_Remediacao_Integral_v4.md)**: Resolução completa dos 50 apontamentos (F01–F50) e 13 Quality Gates (G01–G13), homologados com 102 testes pytest, 52 testes ingestion e 6 testes Playwright E2E.
 - **[Relatório de Homologação e Remediação da Auditoria de QA](./08_AUDITORIAS_TESTES_E_PENTEST/Homologacao_Remediacao_Auditoria_QA.md)**: Resolução completa dos 10 defeitos (FIN-QA-01 a FIN-QA-10) com testes automatizados e validação Neon DB.

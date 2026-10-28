@@ -106,6 +106,7 @@ Modelagem relacional e séries temporais no PostgreSQL 18:
 
 ### 🔄 [05. Ingestão & Pipelines (`fin-ingestion`)](./05_INGESTAO_E_PIPELINES_fin_ingestion/Plano_Mestre_Abastecimento_10_Pipelines.md)
 Mecanismos de extração assíncrona e transformação:
+- **[Arquitetura Autônoma do fin-ingestion (Fila PostgreSQL & Docker)](./05_INGESTAO_E_PIPELINES_fin_ingestion/Arquitetura_Autonoma_Fila_Postgres_Docker.md)**: Fila persistente `SKIP LOCKED`, agendador com calendários de mercado, reconciliação de zumbis e workers em Docker.
 - **[Plano Mestre de Abastecimento: 10 Pipelines](./05_INGESTAO_E_PIPELINES_fin_ingestion/Plano_Mestre_Abastecimento_10_Pipelines.md)**: Arquitetura de aquisição contínua, high-watermarks e checkpoints.
 - **[Especificação dos Scrapers, Coletores e dbt](./05_INGESTAO_E_PIPELINES_fin_ingestion/Especificacao_Tecnica_Scrapers_e_Coletores.md)**: HTTPX assíncrono, fallback Playwright e pouso em `raw.payload`.
 - **[Especificação de Gateway e Egress de Scraping](./05_INGESTAO_E_PIPELINES_fin_ingestion/Especificacao_Gateway_Egress_Scraping.md)**: Especificação de infraestrutura de gateway e proteção de egress.

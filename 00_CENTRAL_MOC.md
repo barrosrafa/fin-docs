@@ -94,6 +94,7 @@ Modelo relacional, séries temporais e governança no PostgreSQL 18:
 
 ### 🔄 5. Ingestão & Pipelines (`fin-ingestion`)
 Motores de captura assíncrona e transformação:
+- [[Arquitetura_Autonoma_Fila_Postgres_Docker|Arquitetura Autônoma do fin-ingestion: Fila PostgreSQL, Workers e Docker]]
 - [[Plano_Mestre_Abastecimento_10_Pipelines|Plano Mestre de Abastecimento: Os 10 Pipelines Automatizados]]
 - [[Especificacao_Tecnica_Scrapers_e_Coletores|Especificação Técnica dos Scrapers, Coletores e dbt]]
 - [[Especificacao_Gateway_Egress_Scraping|Especificação de Gateway e Egress de Scraping]]

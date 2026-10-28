@@ -1,0 +1,119 @@
+---
+title: Mapa de Conteúdo Central (MOC) — Ecossistema Fin
+tags: [fin, moc, index, obsidian, mapa-de-conteudo, arquitetura]
+created: 2026-10-28
+description: Painel central de navegação e grafo de conhecimento de todas as documentações do ecossistema Fin.
+---
+
+# 🧭 Mapa de Conteúdo Central (MOC) — Ecossistema Fin
+
+Bem-vindo à base de conhecimento central e cofre de arquitetura do **Ecossistema Fin**.
+
+Este documento atua como o **Map of Content (MOC)** principal do Obsidian, interligando todas as notas técnicas, especificações de engenharia reversa, modelos de dados e históricos das **23 conversas** que deram origem à plataforma.
+
+---
+
+## 🏛️ Grafo Visual dos Domínios do Cofre
+
+```mermaid
+graph TD
+    MOC["🧭 00_CENTRAL_MOC<br/>(Mapa de Conteúdo Central)"]
+
+    MOC --> C1["📜 01. Histórico das 23 Conversas"]
+    MOC --> C2["🏛️ 02. Arquitetura & Sistema"]
+    MOC --> C3["🕵️ 03. Engenharia Reversa (REA)"]
+    MOC --> C4["📦 04. Engenharia de Dados (fin-db)"]
+    MOC --> C5["🔄 05. Ingestão & Pipelines (fin-ingestion)"]
+    MOC --> C6["⚙️ 06. Backend & APIs (fin-api)"]
+    MOC --> C7["🖥️ 07. Frontend Web (fin-web)"]
+    MOC --> C8["🛡️ 08. Auditorias, Testes & Pentest"]
+
+    C1 --> C2 & C3 & C4 & C5 & C6 & C7 & C8
+    C3 --> C4 & C5 & C6 & C7
+    C4 <--> C6
+    C5 --> C4
+    C6 <--> C7
+```
+
+---
+
+## 🗂️ Índice Estruturado por Domínio
+
+### 📜 1. Histórico & Trilha das 23 Conversas
+O registro cronológico, fiel e detalhado de todas as 23 conversas originais:
+- [[00_Linha_do_Tempo_e_Matriz_23_Conversas|Matriz Unificada e Linha do Tempo das 23 Conversas]]
+- [[Conv_01_a_04_Fundacao_DDL_e_Arquitetura|Conversas 01 a 04: Fundação de Dados, DDL Neon e Arquitetura Macro]]
+- [[Conv_05_a_08_Criacao_Modulos_Ecosystem|Conversas 05 a 08: Criação dos Módulos fin-ingestion, fin-infra, fin-web e fin-api]]
+- [[Conv_09_a_14_Auditoria_Ativos_Reais_Web_e_ETL|Conversas 09 a 14: Auditoria, Ativos Reais da B3, Carteira Invisível e Fim dos Mocks]]
+- [[Conv_15_a_19_Engenharia_Reversa_Profunda_e_Gaps|Conversas 15 a 19: REA Profundo (Fundamentus, Oceans14, Análise de Ações, ETFs Brasil)]]
+- [[Conv_20_a_23_Abastecimento_Auditoria_Producao_e_Cloud|Conversas 20 a 23: Abastecimento Idempotente, Auditoria em Produção e Deploy Cloud]]
+
+---
+
+### 🏛️ 2. Arquitetura & Sistema
+Padrões estruturais, consistência transacional e infraestrutura:
+- [[Arquitetura_Geral_Ecossistema_Fin|Arquitetura Geral do Ecossistema Fin]]
+- [[Arquitetura_Financeira_Missao_Critica|Arquitetura Financeira de Missão Crítica & Ledger de Partidas Dobradas]]
+- [[Tese_Carteira_Invisivel_Dual_Engine|A Tese da Carteira Invisível & Arquitetura Dual-Engine]]
+- [[Deployment_Cloud_Gratuito_Zero_Cost|Deploy Cloud 100% Gratuito (Zero-Cost Production)]]
+- [[Topologia_Producao_e_Observabilidade|Topologia de Produção, Docker Compose e Observabilidade LGTM]]
+
+---
+
+### 🕵️ 3. Engenharia Reversa de Aplicação (REA)
+Análise aprofundada dos 12 portais de investimentos e 4 órgãos oficiais:
+- [[Matriz_Unificada_12_Portais_e_Gaps|Matriz Unificada dos 12 Portais & Análise de Gaps]]
+- [[REA_Fundamentus_Linhagem_e_Endpoints_Ocultos|REA Fundamentus: Linhagem Upstream e Endpoints Ocultos]]
+- [[REA_Status_Invest_e_Investidor10|REA Status Invest, Investidor10 e Fundamentei]]
+- [[REA_Oceans14_e_Modelos_Valuation|REA Oceans14 & Modelos de Valuation Quantitativo]]
+- [[REA_Analise_de_Acoes_Preco_Justo|REA Análise de Ações: Consenso e Projeção de Dividendos]]
+- [[REA_ETFs_Brasil_e_Indices|REA ETFs Brasil: Decomposição de Cestas e Tracking Error]]
+- [[REA_Orgaos_Oficiais_B3_CVM_BCB_ANBIMA|REA Órgãos Oficiais: B3, CVM, BCB e ANBIMA]]
+
+---
+
+### 📦 4. Engenharia de Dados (`fin-db`)
+Modelo relacional, séries temporais e governança no PostgreSQL 18:
+- [[Modelagem_Relacional_12_Schemas|Modelagem Relacional & Dicionário dos 12 Schemas]]
+- [[Hypertables_TimescaleDB_e_Series_Temporais|Hypertables TimescaleDB & Séries Temporais]]
+- [[Catalogo_1242_Ativos_e_Chaves_Naturais|Catálogo de 1.242 Ativos Reais da B3 & Política de Chaves Naturais]]
+- [[Migrations_e_Evolucao_DDL_v3_1_a_Stage12|Histórico de Migrações SQL (v1.0 ao Stage 12 v4.0)]]
+
+---
+
+### 🔄 5. Ingestão & Pipelines (`fin-ingestion`)
+Motores de captura assíncrona e transformação:
+- [[Plano_Mestre_Abastecimento_10_Pipelines|Plano Mestre de Abastecimento: Os 10 Pipelines Automatizados]]
+- [[Especificacao_Tecnica_Scrapers_e_Coletores|Especificação Técnica dos Scrapers, Coletores e dbt]]
+- [[Anti_Bot_Proxies_Rotativos_e_Evasao|Malha de Proxies Rotativos, Anti-Bot e Evasão]]
+
+---
+
+### ⚙️ 6. Backend & APIs REST (`fin-api`)
+Camada de serviços assíncrona, cache e matemática financeira:
+- [[Especificacao_APIs_FastAPI_e_Routers|Especificação das APIs FastAPI, Routers e Contratos Pydantic]]
+- [[Cache_Aside_Redis_e_Idempotencia|Cache-Aside no Redis, Padrão SWR e Idempotência]]
+- [[Motores_Matematicos_e_Valuation_Quant|Motores Matemáticos, Valuation Quantitativo e Risco]]
+
+---
+
+### 🖥️ 7. Frontend Web (`fin-web`)
+Interface moderna e responsiva em Next.js 15:
+- [[Arquitetura_Nextjs_App_Router_e_Tokens|Arquitetura Next.js 15, React 19 e Design Tokens]]
+- [[Eliminacao_de_Mocks_e_Data_Binding|Eliminação de Mocks e Vinculação de Dados Reais]]
+- [[Catalogo_Telas_Rotas_e_Componentes|Catálogo de Telas, Rotas e Componentes de Interface]]
+
+---
+
+### 🛡️ 8. Auditorias, Testes & Pentest
+Relatórios de validação, segurança e planos de melhoria:
+- [[Relatorio_Executivo_Auditoria_Producao|Relatório Executivo de Auditoria em Modo de Produção]]
+- [[Pentest_Segurança_e_Vulnerabilidades|Relatório de Pentest, Segurança e Vulnerabilidades]]
+- [[Plano_Diretor_Melhorias_Sprint_I_e_II|Plano Diretor de Melhorias Contínuas: Sprints I e II]]
+
+---
+
+## 💡 Dicas de Navegação no Obsidian
+- Utilize o atalho **`Cmd + O`** (macOS) para buscar qualquer nota por título ou tag.
+- Abra a visualização de grafo (**Graph View** via `Cmd + G`) para visualizar visualmente as conexões orgânicas entre schemas, decisões das conversas e módulos.
+- Todas as tabelas, fórmulas matemáticas LaTeX ($\LaTeX$) e diagramas Mermaid estão pré-renderizados para leitura offline instantânea.

@@ -2,9 +2,13 @@
 
 Repositório central de documentação técnica, especificações de engenharia reversa (REA), diagramas arquiteturais, modelos de dados, planos de implementação e guias de operação de todos os serviços da plataforma **Fin**.
 
+> [!NOTE]
+> Este repositório é formatado e otimizado como um **Cofre (Vault) do Obsidian**.
+> Para navegar pela base de conhecimento com grafo de conexões e visualização completa, abra o arquivo **[`00_CENTRAL_MOC.md`](./00_CENTRAL_MOC.md)** ou aponte o Obsidian para a pasta `/Users/rafaelaparecido/fin-docs`.
+
 ---
 
-## 🏛️ Visão Geral do Ecossistema Fin
+## 🧭 Visão Geral do Ecossistema Fin
 
 A plataforma Fin é composta por **5 módulos interdependentes**, orquestrados e provisionados de forma desacoplada:
 
@@ -42,50 +46,84 @@ flowchart TD
 
 ---
 
-## 🧭 Catálogo de Documentação por Módulo
+## 🗂️ Estrutura Organizada da Base de Conhecimento (Obsidian Vault)
 
-### 1. [📦 fin-db — Engenharia de Dados & Modelo Relacional](./fin-db/)
-Repositório central de arquitetura, esquemas relacionais, séries temporais (TimescaleDB), vetores (pgvector) e migrações.
-- **[README do fin-db](./fin-db/README.md)**: Visão geral da arquitetura, 12 schemas modulares, 303 tabelas, 36 hypertables e guia de migração.
-- **[01. Pacote Completo DIYFin](./fin-db/01_pacote_completo_diyfin.md)**: DDL SQL completo, extensões, types, dicionário de dados e relacionamento relacional.
-- **[02. Melhorias DDL v3.1](./fin-db/02_melhorias_ddl_v3.1.md)**: Evolução do schema e refinamento de constraints e índices temporais.
-- **[03. Análise DDL v3.2](./fin-db/03_melhorias_ddl_v3.2_analise.md)**: Particionamento e otimização para grandes volumes de dados.
-- **[04. Complementos Sites Análise v3.3](./fin-db/04_complementos_sites_analise_v3.3.md)**: Expansão de colunas e métricas financeiras.
-- **[05. REA 12 Sites Coverage v3.4](./fin-db/05_rea_12_sites_coverage_v3.4.md)**: Matriz de cobertura de campos dos 12 portais de investimentos.
-- **[06. REA Reversa 12 Sites & Órgãos Oficiais](./fin-db/06_rea_reversa_12_sites_e_orgaos_oficiais_especificacao.md)**: Engenharia reversa e especificação detalhada de contratos de dados.
-- **[07. REA Sites Infra Gateway Spec](./fin-db/07_rea_sites_infra_gateway_spec.md)**: Especificação de infraestrutura de gateway e proteção de egress.
-- **[08. REA Frontend Screen Plan & Design System](./fin-db/08_rea_frontend_screen_plan_design_system.md)**: Planejamento detalhado de telas, rotas e componentes UI.
-- **[Superpowers Plans & Specs](./fin-db/superpowers/)**:
-  - `plans/`: Planos de implementação de features financeiras, reconciliação de portfólio, testes de invasão e cobertura de portais.
-  - `specs/`: Especificações arquiteturais (Deploy sem custo em nuvem, Graph reconciliation, etc.).
+### 🧭 [00. Mapa de Conteúdo Central (MOC)](./00_CENTRAL_MOC.md)
+Hub mestre de navegação com links diretos para todas as notas, tabelas e grafos do cofre.
 
 ---
 
-### 2. [⚙️ fin-api — Backend & APIs REST](./fin-api/)
-Backend assíncrono de alto desempenho construído com FastAPI, cache-aside no Redis, autenticação Supabase e background tasks.
-- **[README do fin-api](./fin-api/README.md)**: Estrutura da API, routers (`auth`, `assets`, `portfolio`, `market`, `analytics`), pooling com SQLAlchemy assíncrono, cache com stale-while-revalidate e suíte de testes pytest.
+### 📜 [01. Histórico & Trilha das 23 Conversas](./01_CONVERSAS_HISTORICO/)
+O registro cronológico, exaustivo e sem omissões de todas as 23 conversas fundacionais do projeto:
+- **[Linha do Tempo e Matriz Unificada das 23 Conversas](./01_CONVERSAS_HISTORICO/00_Linha_do_Tempo_e_Matriz_23_Conversas.md)**: Tabela comparativa com ID, data, escopo, decisões e entregas.
+- **[Conversas 01 a 04](./01_CONVERSAS_HISTORICO/Conv_01_a_04_Fundacao_DDL_e_Arquitetura.md)**: Fundação no Neon PostgreSQL (273 tabelas, 36 hypertables) e arquitetura macro dos 5 repositórios.
+- **[Conversas 05 a 08](./01_CONVERSAS_HISTORICO/Conv_05_a_08_Criacao_Modulos_Ecosystem.md)**: Criação de `fin-ingestion`, `fin-infra`, `fin-web` e `fin-api`.
+- **[Conversas 09 a 14](./01_CONVERSAS_HISTORICO/Conv_09_a_14_Auditoria_Ativos_Reais_Web_e_ETL.md)**: Carga dos 1.242 ativos reais da B3, Tese da Carteira Invisível, ETL do Status Invest e fim dos mocks.
+- **[Conversas 15 a 19](./01_CONVERSAS_HISTORICO/Conv_15_a_19_Engenharia_Reversa_Profunda_e_Gaps.md)**: REA profundo de Fundamentus, Oceans14 (Valuation), Análise de Ações e ETFs Brasil.
+- **[Conversas 20 a 23](./01_CONVERSAS_HISTORICO/Conv_20_a_23_Abastecimento_Auditoria_Producao_e_Cloud.md)**: Plano de abastecimento de 10 pipelines, auditoria Chrome DevTools MCP e deploy cloud 100% gratuito.
 
 ---
 
-### 3. [🛡️ fin-infra — Infraestrutura, Gateway & Observabilidade](./fin-infra/)
-Camada de infraestrutura como código (IaC), orquestração de contêineres, gateway de borda e observabilidade unificada.
-- **[README do fin-infra](./fin-infra/README.md)**: Orquestração de Docker Compose, scripts de inicialização, túneis Cloudflare e configuração de ambiente.
-- **[Arquitetura de Infraestrutura](./fin-infra/docs/ARCHITECTURE.md)**: Topologia de rede, isolamento de segurança AWS, monitoramento com Prometheus, Grafana, Loki e OpenTelemetry.
-- **[REA Gateway & Proxy Spec](./fin-infra/docs/REA_ANALYSIS_AND_GATEWAY_SPEC.md)**: Especificação da malha de scraping, proxies residenciais rotativos, evasão de Cloudflare/Akamai e rate limiting.
+### 🏛️ [02. Arquitetura & Sistema](./02_ARQUITETURA_E_SISTEMA/)
+Padrões arquiteturais, consistência transacional e infraestrutura:
+- **[Arquitetura Geral do Ecossistema Fin](./02_ARQUITETURA_E_SISTEMA/Arquitetura_Geral_Ecossistema_Fin.md)**: Topologia, limites de fronteira e os 5 invariantes invioláveis.
+- **[Arquitetura Financeira de Missão Crítica](./02_ARQUITETURA_E_SISTEMA/Arquitetura_Financeira_Missao_Critica.md)**: Ledger de partidas dobradas (soma zero em SQL), Saga orquestrada, Outbox/CDC e idempotência SHA-256.
+- **[A Tese da Carteira Invisível & Dual-Engine](./02_ARQUITETURA_E_SISTEMA/Tese_Carteira_Invisivel_Dual_Engine.md)**: O problema da falsa diversificação e o motor de Look-Through de risco de crédito.
+- **[Deploy Cloud 100% Gratuito](./02_ARQUITETURA_E_SISTEMA/Deployment_Cloud_Gratuito_Zero_Cost.md)**: Vercel + Koyeb (anti-hibernação) + Neon + Upstash Redis + GitHub Actions.
+- **[Topologia de Produção e Observabilidade](./02_ARQUITETURA_E_SISTEMA/Topologia_Producao_e_Observabilidade.md)**: Docker Compose, Traefik v3, Prometheus, Grafana e Loki.
 
 ---
 
-### 4. [🔄 fin-ingestion — Pipelines de Ingestão & ETL](./fin-ingestion/)
-Mecanismo de captura automatizada, parsing, raw landing e transformação de dados com dbt.
-- **[README do fin-ingestion](./fin-ingestion/README.md)**: Arquitetura de coletores assíncronos, estrutura de pipelines, jobs e transformações analíticas.
-- **[Especificação Técnica REA](./fin-ingestion/docs/REA_SPECIFICATION.md)**: Mapeamento de endpoints e estratégias de extração dos 12 portais de investimentos e 4 órgãos reguladores (B3, CVM, BCB, ANBIMA).
+### 🕵️ [03. Engenharia Reversa de Aplicação (REA)](./03_ENGENHARIA_REVERSA_REA/)
+Descoberta de APIs, raspagem e linhagem de dados dos portais e reguladores:
+- **[Matriz Unificada dos 12 Portais & Gaps](./03_ENGENHARIA_REVERSA_REA/Matriz_Unificada_12_Portais_e_Gaps.md)**: Tabela comparativa de cobertura nos 6 domínios de negócio.
+- **[REA Fundamentus: Linhagem e Endpoints Ocultos](./03_ENGENHARIA_REVERSA_REA/REA_Fundamentus_Linhagem_e_Endpoints_Ocultos.md)**: 13 rotas, endpoints em JSON (`cot_hist.php`, `resultado.php`) e tratamento de bancos vs indústrias.
+- **[REA Status Invest, Investidor10 e Fundamentei](./03_ENGENHARIA_REVERSA_REA/REA_Status_Invest_e_Investidor10.md)**: Gregas de opções, remuneração FRE CVM, segmentação geográfica e Apollo GraphQL (102 KPIs).
+- **[REA Oceans14 & Modelos de Valuation Quantitativo](./03_ENGENHARIA_REVERSA_REA/REA_Oceans14_e_Modelos_Valuation.md)**: Fórmulas de Benjamin Graham, Décio Bazin, Gordon e DCF (WACC).
+- **[REA Análise de Ações: Consenso e Projeções](./03_ENGENHARIA_REVERSA_REA/REA_Analise_de_Acoes_Preco_Justo.md)**: Consenso de corretoras, dividendos futuros e score de saúde (0 a 100).
+- **[REA ETFs Brasil: Cestas e Tracking Error](./03_ENGENHARIA_REVERSA_REA/REA_ETFs_Brasil_e_Indices.md)**: Decomposição de carteiras teóricas, Tracking Error anualizado e taxas.
+- **[REA Órgãos Oficiais: B3, CVM, BCB e ANBIMA](./03_ENGENHARIA_REVERSA_REA/REA_Orgaos_Oficiais_B3_CVM_BCB_ANBIMA.md)**: Formatos BVBG, COTAHIST, DFP/ITR, CVM 175, API SGS e curvas ETTJ.
 
 ---
 
-### 5. [🖥️ fin-web — Frontend Web & Dashboard](./fin-web/)
-Aplicação frontend moderna construída com Next.js 15 (App Router), React 19, Tailwind CSS e biblioteca shadcn/ui.
-- **[README do fin-web](./fin-web/README.md)**: Estrutura de rotas, componentes de interface, design tokens e integração com as rotas de backend do `fin-api`.
-- **[Diretrizes e Regras de Agente](./fin-web/AGENTS.md)**: Padrões de código, convenções de tipagem TypeScript e regras de usabilidade.
+### 📦 [04. Engenharia de Dados (`fin-db`)](./04_ENGENHARIA_DE_DADOS_fin_db/)
+Modelagem relacional e séries temporais no PostgreSQL 18:
+- **[Modelagem Relacional dos 12 Schemas](./04_ENGENHARIA_DE_DADOS_fin_db/Modelagem_Relacional_12_Schemas.md)**: Dicionário das 303 tabelas em `canonical`, `core`, `market`, `asset_details`, `analytics`, etc.
+- **[Hypertables TimescaleDB & Séries Temporais](./04_ENGENHARIA_DE_DADOS_fin_db/Hypertables_TimescaleDB_e_Series_Temporais.md)**: As 36 hypertables, intervalos de chunk e consultas com `time_bucket()`.
+- **[Catálogo de 1.242 Ativos Reais da B3](./04_ENGENHARIA_DE_DADOS_fin_db/Catalogo_1242_Ativos_e_Chaves_Naturais.md)**: Ações, FIIs, BDRs, ETFs e política de chaves naturais anti-duplicação.
+- **[Histórico de Migrações SQL (v1.0 ao v4.0)](./04_ENGENHARIA_DE_DADOS_fin_db/Migrations_e_Evolucao_DDL_v3_1_a_Stage12.md)**: Evolução dos 13 estágios de scripts DDL.
+
+---
+
+### 🔄 [05. Ingestão & Pipelines (`fin-ingestion`)](./05_INGESTAO_E_PIPELINES_fin_ingestion/)
+Mecanismos de extração assíncrona e transformação:
+- **[Plano Mestre de Abastecimento: 10 Pipelines](./05_INGESTAO_E_PIPELINES_fin_ingestion/Plano_Mestre_Abastecimento_10_Pipelines.md)**: Arquitetura de aquisição contínua, high-watermarks e checkpoints.
+- **[Especificação dos Scrapers, Coletores e dbt](./05_INGESTAO_E_PIPELINES_fin_ingestion/Especificacao_Tecnica_Scrapers_e_Coletores.md)**: HTTPX assíncrono, fallback Playwright e pouso em `raw.payload`.
+- **[Malha de Proxies Rotativos e Anti-Bot](./05_INGESTAO_E_PIPELINES_fin_ingestion/Anti_Bot_Proxies_Rotativos_e_Evasao.md)**: Proxies residenciais, spoofing de TLS (JA3/JA4) e evasão de Cloudflare.
+
+---
+
+### ⚙️ [06. Backend & APIs REST (`fin-api`)](./06_BACKEND_E_APIS_fin_api/)
+Camada de serviços assíncrona e computação financeira:
+- **[Especificação das APIs FastAPI e Routers](./06_BACKEND_E_APIS_fin_api/Especificacao_APIs_FastAPI_e_Routers.md)**: Roteadores `/health`, `/assets`, `/market`, `/portfolio`, `/valuation`.
+- **[Cache-Aside no Redis, SWR e Idempotência](./06_BACKEND_E_APIS_fin_api/Cache_Aside_Redis_e_Idempotencia.md)**: Stale-While-Revalidate, TTL por volatilidade e tokens SHA-256.
+- **[Motores Matemáticos e Valuation Quantitativo](./06_BACKEND_E_APIS_fin_api/Motores_Matematicos_e_Valuation_Quant.md)**: Implementação em Python de Graham, Bazin, DCF, WACC, Sharpe, Sortino e VaR.
+
+---
+
+### 🖥️ [07. Frontend Web (`fin-web`)](./07_FRONTEND_fin_web/)
+Interface moderna em Next.js 15:
+- **[Arquitetura Next.js 15 e Design Tokens](./07_FRONTEND_fin_web/Arquitetura_Nextjs_App_Router_e_Tokens.md)**: Server Components, React 19, Tailwind CSS e tipografia financeira monoespaçada.
+- **[Eliminação de Mocks e Vinculação de Dados Reais](./07_FRONTEND_fin_web/Eliminacao_de_Mocks_e_Data_Binding.md)**: Validação com Zod, hooks SWR e skeletons de carregamento.
+- **[Catálogo de Telas, Rotas e Componentes](./07_FRONTEND_fin_web/Catalogo_Telas_Rotas_e_Componentes.md)**: Dashboard, Screeners de Ações/FIIs, Páginas de Detalhes e Comparador.
+
+---
+
+### 🛡️ [08. Auditorias, Testes & Pentest](./08_AUDITORIAS_TESTES_E_PENTEST/)
+Validação de qualidade, segurança e planos futuros:
+- **[Relatório Executivo de Auditoria em Produção](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Executivo_Auditoria_Producao.md)**: Testes navegados no Chrome DevTools MCP, auditoria mobile (iPhone 14) e Lighthouse 98/100.
+- **[Relatório de Pentest e Vulnerabilidades](./08_AUDITORIAS_TESTES_E_PENTEST/Pentest_Segurança_e_Vulnerabilidades.md)**: Mitigação contra SQL Injection, XSS, CSRF, RLS e rate limiting.
+- **[Plano Diretor de Melhorias Contínuas: Sprints I e II](./08_AUDITORIAS_TESTES_E_PENTEST/Plano_Diretor_Melhorias_Sprint_I_e_II.md)**: Entregas da Sprint I e roadmap priorizado da Sprint II.
 
 ---
 
@@ -93,7 +131,7 @@ Aplicação frontend moderna construída com Next.js 15 (App Router), React 19, 
 
 | Módulo | Repositório | Escopo Principal |
 |---|---|---|
-| **fin-docs** | [`barrosrafa/fin-docs`](https://github.com/barrosrafa/fin-docs) | Central de documentação, especificações e arquitetura |
+| **fin-docs** | [`barrosrafa/fin-docs`](https://github.com/barrosrafa/fin-docs) | Central de documentação, cofre Obsidian, especificações e arquitetura |
 | **fin-db** | [`barrosrafa/fin-db`](https://github.com/barrosrafa/fin-db) | PostgreSQL 18, TimescaleDB, migrações e DDL |
 | **fin-api** | [`barrosrafa/fin-api`](https://github.com/barrosrafa/fin-api) | Backend assíncrono em FastAPI, autenticação e cache |
 | **fin-infra** | [`barrosrafa/fin-infra`](https://github.com/barrosrafa/fin-infra) | Terraform, Docker Compose, Gateway e Observabilidade |
@@ -102,14 +140,9 @@ Aplicação frontend moderna construída com Next.js 15 (App Router), React 19, 
 
 ---
 
-## 🚀 Como Utilizar este Repositório
+## 🚀 Como Utilizar este Repositório no Obsidian
 
-### Visualização no Obsidian
-Este repositório é 100% compatível como um **Cofre (Vault) do Obsidian**:
-1. Abra o Obsidian.
-2. Selecione **Open folder as vault** (Abrir pasta como cofre).
+1. Abra o aplicativo **Obsidian**.
+2. Clique em **Open folder as vault** (Abrir pasta como cofre).
 3. Selecione a pasta `/Users/rafaelaparecido/fin-docs`.
-4. Todos os diagramas em Mermaid, links internos em Markdown e notas estarão renderizados com navegação gráfica completa.
-
-### Visualização no GitHub
-Ao navegar pelo GitHub em [`https://github.com/barrosrafa/fin-docs`](https://github.com/barrosrafa/fin-docs), utilize o menu e os links relativos acima para navegar diretamente para a documentação de cada módulo do sistema.
+4. Abra o arquivo **`00_CENTRAL_MOC.md`** ou utilize o atalho `Cmd + G` para visualizar o Grafo de Conexões interativo.

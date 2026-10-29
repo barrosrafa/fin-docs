@@ -1,0 +1,13 @@
+
+> fin-web@0.1.0 test /Users/rafaelaparecido/fin-web
+> vitest run
+
+
+ RUN  v5.0.5 /Users/rafaelaparecido/fin-web
+
+
+ Test Files  4 passed (4)
+      Tests  11 passed (11)
+   Start at  15:51:51
+   Duration  2.56s (environment 82%, tests 11%, import 5%, transform 1%, worker 1%)
+

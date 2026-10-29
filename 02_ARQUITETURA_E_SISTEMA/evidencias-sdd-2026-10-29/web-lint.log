@@ -1,0 +1,68 @@
+
+> fin-web@0.1.0 lint /Users/rafaelaparecido/fin-web
+> eslint
+
+
+/Users/rafaelaparecido/fin-web/src/app/acoes/agenda-dividendos/page.tsx
+  8:10  warning  'formatCurrency' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/rafaelaparecido/fin-web/src/app/acoes/busca-avancada/page.tsx
+  6:10  warning  'Badge' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/rafaelaparecido/fin-web/src/app/acoes/participacao-investidores-b3/page.tsx
+  5:10  warning  'Badge' is defined but never used          @typescript-eslint/no-unused-vars
+  7:26  warning  'formatPercent' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/rafaelaparecido/fin-web/src/app/acoes/ranking/page.tsx
+  6:10  warning  'Badge' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/rafaelaparecido/fin-web/src/app/acoes/sem-prejuizo/page.tsx
+  7:10  warning  'formatCurrency' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/rafaelaparecido/fin-web/src/app/agenda-dividendos/page.tsx
+  9:10  warning  'formatCurrency' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/rafaelaparecido/fin-web/src/app/cadastro/page.tsx
+  14:10  warning  'loading' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/rafaelaparecido/fin-web/src/app/carteira/page.tsx
+  29:16  warning  'err' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/rafaelaparecido/fin-web/src/app/cockpit/debtor-analysis/page.tsx
+  16:10  warning  'isLoading' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/rafaelaparecido/fin-web/src/app/comparador/ComparadorClient.tsx
+  67:6  warning  React Hook useEffect has a missing dependency: 'selectedTickers'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/Users/rafaelaparecido/fin-web/src/app/fiis/[ticker]/FIIDetailClient.tsx
+  28:10  warning  'loading' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/rafaelaparecido/fin-web/src/app/fundos-imobiliarios/busca-avancada/page.tsx
+  6:10  warning  'Badge' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/rafaelaparecido/fin-web/src/app/fundos-imobiliarios/ranking/page.tsx
+  6:10  warning  'Badge' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/rafaelaparecido/fin-web/src/app/indicadores-economicos/page.tsx
+   7:26  warning  'formatPercent' is defined but never used     @typescript-eslint/no-unused-vars
+  15:10  warning  'loading' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/rafaelaparecido/fin-web/src/app/mapa-do-site/page.tsx
+  4:10  warning  'Badge' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/rafaelaparecido/fin-web/src/app/quem-somos/page.tsx
+  4:10  warning  'Badge' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/rafaelaparecido/fin-web/src/app/screener/ScreenerClient.tsx
+  3:27  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/rafaelaparecido/fin-web/src/app/simulador-de-portfolios/page.tsx
+   6:10  warning  'Badge' is defined but never used                                                                                 @typescript-eslint/no-unused-vars
+  58:22  warning  'setPortfolios' is assigned a value but never used                                                                @typescript-eslint/no-unused-vars
+  95:6   warning  React Hook useEffect has a missing dependency: 'runSimulation'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/Users/rafaelaparecido/fin-web/src/hooks/useInfiniteScroll.ts
+  108:20  warning  The ref value 'generation.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'generation.current' to a variable inside the effect, and use that variable in the cleanup function  react-hooks/exhaustive-deps
+
+✖ 23 problems (0 errors, 23 warnings)
+

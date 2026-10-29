@@ -1,0 +1,143 @@
+{
+  "date": "2026-10-29",
+  "timezone": "America/Sao_Paulo",
+  "scope": "local working trees; selected regression tests; no deployment or SQL execution",
+  "gates": {
+    "web_unit": 11,
+    "browser_e2e": 6,
+    "api": 49,
+    "ingestion": 12,
+    "total_selected_tests": 78,
+    "lint_errors": 0,
+    "lint_warnings": 23,
+    "production_build": "passed"
+  },
+  "not_run": [
+    "PostgreSQL migration/integration",
+    "4h/8h soak",
+    "tick/gateway stress",
+    "order concurrency/reconciliation",
+    "CrUX/RUM and full WCAG audit"
+  ],
+  "repositories": {
+    "fin": {
+      "base_commit": "f5ea8c305214203394d4ec4da312455e44cf4e06",
+      "files_sha256": {
+        "scripts/ingest_status_invest.py": "ec0c48c9e3125f28302bf7a319da23cafd66c95b6b341ec2ebe6cebfd507ef53",
+        "sql/16_market_data_quality_v4.4/01_quality_and_quarantine.sql": "c3c80758e3b707024aa3954fec32a48155bdf6b84eb41f0d15aad1c333e53ac1",
+        "sql/16_market_data_quality_v4.4/README.md": "21bac7882673b811718c86791430229a35a0fa369cbcd39a6c951e16f7a940d1"
+      },
+      "diff_check": "passed"
+    },
+    "fin-web": {
+      "base_commit": "42d90e2d1546f3b0c01a3933ffbfdd96727e02cb",
+      "files_sha256": {
+        "eslint.config.mjs": "95df9ef62da9bf892ca3a51530a174a46e0a94f3b71830d8a55b7549845ef810",
+        "package.json": "a503d851138b68880849c6918fd92477b5a4b06da7e5accf757920ab0998d49e",
+        "playwright.sdd.config.ts": "12e43eabf51da5ceb6f782e57d2caabbeaab997b7529f3d21f3f96af8a224a58",
+        "pnpm-lock.yaml": "482e1912c092f28d8a4a886a88c3a6db83c51ff0753e9e310a7ab990364723bd",
+        "src/app/acoes/[ticker]/AcaoDetailClient.tsx": "a6e2f98c57a6b5c2667a211ee9260644df815c59fce40675575018b26d5e244e",
+        "src/app/acoes/[ticker]/opengraph-image.tsx": "56ee77427affab68c2ba2c3ba4ba4df030f56a8d3ab226c1dbc730c106a7c8bb",
+        "src/app/acoes/[ticker]/page.tsx": "1709e3ee2875252293fb59677886984188f68dbf1b17dc9f044d2bbadd8fe69b",
+        "src/app/acoes/busca-avancada/page.tsx": "411bf5822266e404b87023eeda6275710c49965f4e49be16b5b6a451e07333f0",
+        "src/app/acoes/page.tsx": "98d012b3b7b0b6d75bb94fdcc5ce9d17965551c54145b735de31c4d2fdecfc1a",
+        "src/app/acoes/ranking/page.tsx": "bdd6729eb8d218ef76b3d7f54c5197bbcad1760806331737685cf6a9a0c6dd0f",
+        "src/app/carteira/page.tsx": "c9076745dba5a6a15ac231c47707ca4fd76624b1f955c4603bb7d0259a2e2490",
+        "src/app/cockpit/debtor-analysis/page.tsx": "1412a14f7ee3572d8b51c4d1db8092a0acbb7c65842d0ac819d1f89b764ca2a6",
+        "src/app/comparador/ComparadorClient.tsx": "a74b541b6d0945161f09afb002636bcf840f345cde08b623fc71ad2926f7a6a6",
+        "src/app/dicionario/[slug]/TermDetail.tsx": "15672ec528aa6bc986a6e8fc5bb7869e886853c7a5559d2e1f7782920d4d9f83",
+        "src/app/dicionario/[slug]/TermDetailClient.tsx": "deleted",
+        "src/app/dicionario/[slug]/page.tsx": "c27a6ec8e4af79eaecfb0ca7e26534085b3c2b0d2e94c70e4d975fea208c7c29",
+        "src/app/etfs/page.tsx": "1132a13ef7b5df4420abcd68df85b9c611151695019266123d9f32f1e9b25a87",
+        "src/app/fiis/page.tsx": "051b0f5deb1272b48988ac0433473ced293b34ebd6f0a4195582cec4cc984718",
+        "src/app/fundos-imobiliarios/busca-avancada/page.tsx": "e0fa1cb6ffae39d349dc22286f5706cc553d9c9e81f7b90cf3b89c3e06f2e3bf",
+        "src/app/fundos-imobiliarios/ranking/page.tsx": "a3cc9cec1ccbd2ad99f9a1d645de52ccd07a6182dbb0df0aee38554e0f22d505",
+        "src/app/globals.css": "53ccd73eef3fd2e6913a63aebcbbf1ed9eb828b17a6f3e9aaec72ba53000b2f7",
+        "src/app/layout.tsx": "69d02361e8c81a0ec8921184cfdb04451846932dee8f333ce0849d7ecf8be897",
+        "src/app/noticias/page.tsx": "db0721fec61280119908e51829c345b923f2e517fad25ea25a34a3c93d4c170b",
+        "src/app/page.tsx": "c5a421aa359744f9ba368272b75d7175c64b511af0cce6c3ae17c0455d6a1c4b",
+        "src/app/screener/ScreenerClient.tsx": "dc75c6f2731c6ff21eaabdc82aabad5a5987ddbc4c133d21a8da3afcaf40c1eb",
+        "src/app/simulador-de-portfolios/page.tsx": "8ed9953cd2fe25dd9015c84cd05526a23491a19538cbb3c618a9ee2e9b0c4e62",
+        "src/components/market/VirtualAssetList.tsx": "6233735ae4ad8c1010965749ed145efc54a85c7311320051b93c3f923eeda416",
+        "src/components/market/VirtualTableBody.tsx": "c871b7b31a9755a467af9f7bc5b4258dbd3be71c675688e62e3d6a0bf8f25bf5",
+        "src/components/portfolio/__tests__/DebtorConcentrationCard.test.tsx": "4e38d9a15e2d77a43a866ab53a24cae0bb6309dbf7f10eafd5ef64a410dd8df4",
+        "src/components/shared/DataStatus.tsx": "7ec8db9009a536126dcb2ac0365c2dbc436c3b1b1735eb4a8d83a9ae5e8b297a",
+        "src/components/shared/DisplayPreferences.tsx": "98f4d9088e3c801581cc9f80709cf367ffe89404fc4212913ba6ab7c9203367e",
+        "src/components/shared/SectionState.tsx": "8a4d49673b835f91d7f2616fbfd4533f2e366bb1566a4a54047901f3e6b3d479",
+        "src/components/stocks/StockFundamentalsGrid.tsx": "803f9a1fcdd763c38fba7d8a601320144bf24795fb7478a9c222fcf804a7f0c1",
+        "src/components/stocks/StockPriceHistorySection.tsx": "1e265cc4df368a1b883ef4a47aa0ace54fc2ea3fe143428b8f1bf2c48a8cd5b3",
+        "src/components/ui/Footer.tsx": "9cbddfc306773e9e702bb27018fa52c94125a8edc06ddec093d50ef1825aee3d",
+        "src/components/ui/InfiniteScrollFooter.tsx": "0a71a6cdf8341545eb4cacca5209af22a9a3926c37c55aae60cb130679c78e52",
+        "src/components/ui/Navbar.tsx": "4ba13e58c893cdd8003b1ab6e149a7feadf175cfd818c759c018306858aacb3c",
+        "src/components/ui/TickerTape.tsx": "22771fd6612a91c1b4b1562409f51007cc65b45c90d3391a0de34ac1dec9523d",
+        "src/hooks/__tests__/useInfiniteScroll.test.tsx": "8e12dfd40389105e1927143aa2d53c8e3c16e004e1f462b43b3648948ee15ddc",
+        "src/hooks/useInfiniteScroll.ts": "cb4c32f3d50b0f436b29bc561b63f70869f6f732dacfdd55f00adbd7ad5d0fef",
+        "src/lib/__tests__/data-integrity.test.ts": "bc94380965d0ac57bd7ead2bf7e92f4e89c7b11c2277e5e4faf6b0edff5aaebc",
+        "src/lib/__tests__/market-db.test.ts": "e77631e67a9e3212584ec7265323a403fa6c98d3e8aba6cc800373aaf3952c6b",
+        "src/lib/api.ts": "64181b87416d206862759000c0bb64e0450bcecd1d8d06bf1dc7d95689424b89",
+        "src/lib/cache/market-db.ts": "c10921451b4b9194d2fcca94d7b66634527ac18a789d495cf1d4d0fc58e2978f",
+        "src/lib/formatters.ts": "d16e9101e76a09ea11ecd820d0e6cf20e940d20fbd3b3f37d404709f85e8d795",
+        "src/lib/server/stock.ts": "f00189c4bbfabc61fccd692123f4b92b2b5d05d1a4fb4f2d958e64cf9f128ff1",
+        "src/lib/snapshots.ts": "ededc19575a992298876060d616efb0de1194c3027cb769e074dda6856e0975a",
+        "src/proxy.ts": "22776f5e94676a705a4b0912ef950ca38a3244598354cc3dd8723f4502e1ff7d",
+        "src/schemas/data-provenance.ts": "ead0cb3fc593589247af2f1704b74627782164339060f6cac63a24a07669220c",
+        "src/schemas/financial.ts": "5cf62b2a0ec47a10f19c5c622dce9110300d12ba7c04dc8e9de143cb02e51aab",
+        "tests-e2e/accessibility-finance.spec.ts": "954f01864207d9c070491fa62f4aa69bc8170a7c6cee651ba80a63443b7089b0",
+        "tests-e2e/data-failures.spec.ts": "0d7c29f2af3ce0fbf44df5699ce55454a32b52ec57750cf21dac64b3ee0eee42",
+        "tests-e2e/fixtures/backend.mjs": "a1737ad261f688ed72c2c7dba30b8f236845f86948e33dbf63d53926e98568c6",
+        "tests-e2e/fixtures/route.ts": "1346d24fe766fde2ec58d9e844461da950173bd5dc5f42808ee74dbfebb12951",
+        "tests-e2e/scroll-window.spec.ts": "a5d80326953f27d6f6ca78cac12bc8b34fedfaa3684be6026da952a5ea588b40",
+        "tests-e2e/seo-assets.spec.ts": "5b7a987cf3c727523636edff6b39b9419d8da28b692be0f79c66c10b397737a3",
+        "vitest.config.mts": "f243be5958e55eeac913f7fd61f2224a8ef635c8738d217a14022e15a24e1be3"
+      },
+      "diff_check": "passed"
+    },
+    "fin-api": {
+      "base_commit": "cad187708125f22650be0e89f64da236215013bb",
+      "files_sha256": {
+        "app/calculations/__init__.py": "23c7415b3dc505c9c214ac4865fb57eff9405eceb6c764684e3f933db20abdf6",
+        "app/calculations/money.py": "9814ba4f3ef941ea1c14ce5094108c78111a485a8a1aa1768544314f2bb367bb",
+        "app/calculations/pnl.py": "6f1ed273756cc30fbf9a9020e6f04a2628ad348e55dbd9a49d6ef614a3c7ea92",
+        "app/collectors/normalizer.py": "8db830d027f6839dc3a97342d1528f99e9516b660dbe32931174962d6dc0da7b",
+        "app/main.py": "5fb3d39525fa3983196557975a1fd4622b01578ae0bd9f5a407f0f33c706cfea",
+        "app/market/schemas.py": "e3b579c2fa07abd400ddcb6f4dd7db9587eb8e7174c5b439cf4aad1e29aa7010",
+        "app/market/service.py": "61c75efe0043f893e8bb619b97d5878cd82fce3afbefdfc244fcded3185e46ca",
+        "app/portfolio/schemas.py": "bba7c28d911e388573d949477e53a80466f5ac836269c3eee15240038cc53a7a",
+        "app/portfolio/service.py": "38923b6c2e7215ff4d81b6cb38f6c1e4bd7b7a0c6111e8c69997597bc2bf4781",
+        "app/simulator/schemas.py": "9f4a06c7af21f87d3c6b170ef67e0e20ccddc2be54d9ea1e11737925894ddd48",
+        "app/simulator/service.py": "513841e87a3fc6d876fb1360de7651a615192eff6dda4bed81d8cbde3d34a882",
+        "app/stocks/schemas.py": "9b615137dbedb87ef8506d55f66a6e7b432ee836278ad8ae79bda7d46c79e6f9",
+        "app/stocks/service.py": "be613c02957cba18016c26ec5432d43bbf447d2c80136c88c1ee0e02b7b740be",
+        "app/worker/tasks/ingestion.py": "28806843e7be006a3a9a581ce0b16c9095f94f1ef94fdd1968aaa3efee059024",
+        "tests/test_cors.py": "aa4b25df7e3dcd13e1263141d1dc1689a054d7d9c383578006f17a1f4d7a88a6",
+        "tests/test_data_integrity.py": "bf2a1b4d49eb4885e4820160db87ea7e1cf3d4f410e51255d42d496f68261273",
+        "tests/test_pnl_decimal.py": "eff6754f29bb21b567fbc51ef69405673a541606218d39e74f644deeacc4f557",
+        "tests/test_portfolio.py": "1da873d1d8e7a0a7d541c1eec6b089a9c1680445beae0a97aaad82a16e3a4f96"
+      },
+      "diff_check": "passed"
+    },
+    "fin-ingestion": {
+      "base_commit": "992bf3ec4b4700bfc4c25dd4b4b62eb680270395",
+      "files_sha256": {
+        "fin_ingestion/pipelines/status_invest_etl.py": "017eeee5d91b7957f833481623f39d5431bc849f6111b0e595c1e8332709dc6d",
+        "tests/test_status_invest_etl.py": "e26ad665d3ab4dcfe6a01aab2e34469d4c910dffb3596a358934297039b35f90"
+      },
+      "diff_check": "passed"
+    },
+    "fin-infra": {
+      "base_commit": "056db7824bcab394469ce12c55a5d7ff60fc0cf9",
+      "files_sha256": {
+        "docs/market-data-capacity.md": "d07391d2969d97bd5d47c052e413f6998a061cc139422664064fba9d99f27d13"
+      },
+      "diff_check": "passed"
+    },
+    "fin-docs": {
+      "base_commit": "3613b8df50c2520c711f5dafef57c6fcc74eafc3",
+      "files_sha256": {
+        "02_ARQUITETURA_E_SISTEMA/Deployment_Cloud_Gratuito_Zero_Cost.md": "a6e654a95806eac98b3d02dbb822fc1e0fc42ef516c0b79e4e527d76c0bbccbf",
+        "02_ARQUITETURA_E_SISTEMA/SDD_Execucao_2026-10-29.md": "67bc707dee1c681f6d3e7a18f2fb0916676c1a57c24559fb4fe79c6ebc764472"
+      },
+      "diff_check": "passed"
+    }
+  }
+}

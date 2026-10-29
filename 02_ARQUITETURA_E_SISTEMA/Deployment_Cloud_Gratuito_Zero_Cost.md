@@ -2,12 +2,18 @@
 title: Deploy Cloud 100% Gratuito (Zero-Cost Production Architecture)
 tags: [fin, arquitetura, cloud, deploy, vercel, koyeb, render, neon, upstash, github-actions, free-tier]
 created: 2026-10-28
-description: Arquitetura distribuída de alta disponibilidade operando 24/7 com custo zero de infraestrutura.
+description: Proposta de implantação de baixo custo; disponibilidade, cotas e capacidade exigem medição.
+updated_at: 2026-10-29
+status: revisao-tecnica
 ---
 
 # ☁️ Deploy Cloud 100% Gratuito (Zero-Cost Production Architecture)
 
-Este documento documenta o projeto técnico de implantação e operação contínua do ecossistema **Fin** em nuvem, garantindo disponibilidade 24/7 sem incorrer em custos mensais de servidores.
+Este documento documenta o projeto técnico de implantação e operação contínua do ecossistema **Fin** em nuvem, visando baixo custo. Disponibilidade e custo dependem das cotas contratadas, do tráfego e de medições operacionais.
+
+> **Revisão SDD — 29/10/2026:** os números de planos, capacidade e afirmações de operação contínua abaixo são históricos/propostos e não foram revalidados nos provedores. Não constituem SLA, medição de latência ou garantia de gratuidade. Pings não comprovam disponibilidade. Consulte [[SDD_Execucao_2026-10-29]] para o estado efetivamente implementado e validado.
+
+O checkout local declara Next.js **16.4.3** e React **19.3.0**. O detalhe de ação passa a carregar cadastro, valuation disponível e uma tabela inicial de histórico no servidor por `use cache`, com `cacheLife({ stale: 60, revalidate: 60, expire: 300 })`. Isso se aplica à nova implementação local; não comprova o commit do deploy público. Valuation incompleto responde indisponibilidade. O SSE existente comunica sincronização, e não ticks de preço. Não há homologação de gateway de cotações ou de execução de ordens.
 
 ---
 
@@ -17,7 +23,7 @@ Este documento documenta o projeto técnico de implantação e operação contí
 flowchart TD
     subgraph Edge["🌍 Borda & CDN Global (Cloudflare & Vercel Edge)"]
         CF["🛡️ Cloudflare DNS, WAF & SSL Gratuito"]
-        VERCEL["🖥️ Vercel Hobby (fin-web)<br/>Next.js 15 • Server-Side Rendering (SSR)<br/>100 GB Largura de Banda/mês • SSL Automático"]
+        VERCEL["🖥️ Vercel Hobby (fin-web)<br/>Next.js 16.4.3 • Server-Side Rendering (SSR)<br/>100 GB Largura de Banda/mês • SSL Automático"]
     end
 
     subgraph Compute["⚙️ Backend & Processamento Assíncrono"]
@@ -46,7 +52,7 @@ flowchart TD
 
 | Componente | Provedor Gratuito | Especificações do Plano | Função no Ecossistema |
 |---|---|---|---|
-| **Frontend Web** | **Vercel** (Hobby) | 100 GB largura de banda, builds automáticos via Git, Edge Network global | Hospeda o `fin-web` (Next.js 15 App Router). Renderiza componentes e serve a aplicação com latência < 30ms no Brasil. |
+| **Frontend Web** | **Vercel** (Hobby) | 100 GB largura de banda, builds automáticos via Git, Edge Network global | Hospeda o `fin-web` (Next.js 16.4.3 App Router). Renderiza componentes e serve a aplicação; latência ainda não homologada. |
 | **Backend API** | **Koyeb** (Nano) / **Render** | 512 MB RAM, 0.1 vCPU, HTTPS nativo, deploy contínuo via Docker/Git | Executa o `fin-api` (FastAPI). Expõe a API REST protegida e orquestra regras de negócio. |
 | **Banco de Dados** | **Neon** (Serverless) | PostgreSQL 18, 0.5 GB armazenamento SSD, 100 Compute Unit-horas/mês | Hospeda o `fin-db` com seus 12 schemas, 303 tabelas, hypertables TimescaleDB e pgvector. |
 | **Cache & Filas** | **Upstash** (Serverless) | 10.000 comandos/dia gratuitos, armazenamento de 256 MB, TLS nativo | Cache L1 de cotações, books, valuation e controle distribuído de tokens de idempotência. |
@@ -61,7 +67,7 @@ A sustentabilidade de uma arquitetura 100% gratuita depende de impedir que servi
 
 ### 1. Prevenção de Hibernação do Koyeb sem Gastar a Cota do Neon
 - **O Problema:** O Koyeb desliga contêineres inativos após 1 hora sem requisições. O Neon cobra minutos de CPU enquanto há conexões abertas (limite de 100 CU-horas/mês). Se um script de ping convencional testar o banco a cada 10 minutos, o Neon consome 100% da cota gratuita em menos de 15 dias.
-- **A Solução:** Implementado o endpoint `/health` que responde **exclusivamente a partir da memória RAM da aplicação**, com status `HTTP 200 OK {"status": "alive", "uptime": 12345}` sem abrir pool de conexões com o PostgreSQL. O Koyeb permanece ligado 24/7 sem consumir 1 segundo sequer da cota do banco de dados Neon.
+- **A Solução:** Implementado o endpoint `/health` que responde **exclusivamente a partir da memória RAM da aplicação**, com status `HTTP 200 OK {"status": "alive", "uptime": 12345}` sem abrir pool de conexões com o PostgreSQL. Esse endpoint não comprova operação contínua, nem elimina o consumo de banco pelas demais requisições e tarefas. Verificar políticas do provedor e consumo observado.
 
 ### 2. Defesa da Quota do Upstash Redis (< 10.000 comandos/dia)
 - **O Problema:** Se cada clique em uma ação disparar 10 comandos Redis (`GET quote`, `GET multiples`, `GET history`), 1.000 visualizações de página esgotam o limite diário gratuito.
@@ -79,7 +85,7 @@ A sustentabilidade de uma arquitetura 100% gratuita depende de impedir que servi
   - *Consumo total estimado:* ~250 minutos/mês dos 2.000 minutos gratuitos oferecidos pelo GitHub.
 
 ### 4. Vercel Serverless Edge & Prefetch
-- O `fin-web` utiliza Incremental Static Regeneration (ISR) com `revalidate = 60` nas páginas de ações. Isso faz com que a Vercel gere páginas estáticas no Edge e atenda milhares de visitantes diretamente da CDN sem fazer requisições à API.
+- Na implementação local revisada, o detalhe de ação usa `use cache` com `cacheLife({ stale: 60, revalidate: 60, expire: 300 })` para a base pública. Componentes interativos ainda fazem leituras de API. Não houve ensaio de capacidade para milhares de visitantes; cache de servidor não significa ausência de tráfego ao backend.
 
 ---
 

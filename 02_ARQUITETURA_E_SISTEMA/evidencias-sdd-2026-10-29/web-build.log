@@ -1,0 +1,110 @@
+
+> fin-web@0.1.0 build /Users/rafaelaparecido/fin-web
+> next build
+
+▲ Next.js 16.4.3 (Turbopack)
+- Environments: .env.local
+✓ Running next.config.ts took 49ms
+- Cache Components enabled
+- Partial Prefetching enabled
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 1945ms
+  Running TypeScript ...
+  Finished TypeScript in 4.3s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/84) ...
+  Generating static pages using 7 workers (21/84) 
+  Generating static pages using 7 workers (42/84) 
+  Generating static pages using 7 workers (63/84) 
+✓ Generating static pages using 7 workers (84/84) in 2.9s
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /acoes
+├   /acoes/[ticker]
+│ ├ ◐ /acoes/[ticker]
+│ ├ ○ /acoes/PETR4
+│ ├ ○ /acoes/VALE3
+│ └ ◐ [+3 more paths]
+├ ƒ /acoes/[ticker]/opengraph-image
+├ ○ /acoes/agenda-dividendos
+├ ○ /acoes/agenda-resultados
+├ ○ /acoes/busca-avancada
+├ ○ /acoes/historico-pl-bovespa
+├ ○ /acoes/participacao-investidores-b3
+├ ○ /acoes/ranking
+├ ○ /acoes/sem-prejuizo
+├ ○ /agenda-dividendos
+├ ○ /artigos
+├   /artigos/[slug]
+│ └ ◐ /artigos/[slug]
+├ ○ /cadastro
+├ ○ /carteira
+├ ○ /cockpit/debtor-analysis
+├ ○ /comparador
+├   /comparador/[tickerA]/[tickerB]
+│ ├ ◐ /comparador/[tickerA]/[tickerB]
+│ ├ ◐ /comparador/cdib11/[tickerB]
+│ ├ ○ /comparador/cdib11/lftb11
+│ └ ◐ [+8 more paths]
+├ ○ /contato
+├ ○ /corretoras
+├ ○ /derivativos
+├ ○ /dicionario
+├   /dicionario/[slug]
+│ ├ ◐ /dicionario/[slug]
+│ ├ ○ /dicionario/preco-justo-de-graham
+│ ├ ○ /dicionario/preco-teto-de-bazin
+│ └ ◐ [+3 more paths]
+├ ○ /etfs
+├   /etfs/[ticker]
+│ ├ ◐ /etfs/[ticker]
+│ ├ ○ /etfs/BOVA11
+│ ├ ○ /etfs/IVVB11
+│ └ ○ /etfs/SMAL11
+├ ○ /fiis
+├   /fiis/[ticker]
+│ ├ ◐ /fiis/[ticker]
+│ ├ ○ /fiis/HGLG11
+│ ├ ○ /fiis/KNIP11
+│ └ ○ /fiis/MXRF11
+├ ○ /fundos
+├ ○ /fundos-imobiliarios/busca-avancada
+├ ○ /fundos-imobiliarios/ranking
+├   /fundos/[id]
+│ ├ ◐ /fundos/[id]
+│ ├ ○ /fundos/1001
+│ ├ ○ /fundos/1002
+│ └ ○ /fundos/1003
+├ ○ /indicadores-economicos
+├ ○ /livros-investimentos
+├ ○ /login
+├ ○ /login/recuperacao
+├ ○ /mapa-de-dividendos
+├ ○ /mapa-do-site
+├ ○ /noticias
+├ ○ /perfil-de-investidor
+├ ○ /politica-de-privacidade
+├ ○ /premium
+├ ○ /quem-somos
+├ ○ /radar-ia
+├ ○ /rankings
+├ ○ /reits
+├ ○ /renda-fixa
+├ ○ /screener
+├ ○ /simulador-de-dividendos
+├ ○ /simulador-de-portfolios
+├ ○ /sobre
+├ ○ /stocks
+└ ○ /termos-de-uso
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)             prerendered as static content
+◐  (Partial Prerender)  prerendered as static HTML with dynamic server-streamed content
+ƒ  (Dynamic)            server-rendered on demand
+

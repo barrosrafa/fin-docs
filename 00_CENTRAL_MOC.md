@@ -123,6 +123,8 @@ Interface moderna e responsiva em Next.js 15:
 ---
 
 ### 🛡️ 8. Auditorias, Testes & Pentest
+
+- [[2026-10-29_Remediacao_Seguranca_e_Publicacao|Remediação de segurança de 29/10: RLS, Redis distribuído, cache privado e publicação]]
 Relatórios de validação, segurança e planos de melhoria:
 - [[2026-10-28_RELATORIO_PARIDADE_FUNCIONAL_E_SANEAMENTO_COMPLETO|Relatório Técnico de Paridade Funcional, Saneamento de Mocks e Engenharia Analítica v5.0 (Fundamentus, Oceans14, Análise de Ações, ETFs Brasil)]]
 - [[Relatorio_Auditoria_Live_Frontend_CORS_e_Browser_Testing|Relatório de Auditoria: Validação da URL Frontend, Resolução de CORS e Testes de Navegador]]

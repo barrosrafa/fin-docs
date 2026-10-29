@@ -135,6 +135,8 @@ Interface moderna em Next.js 15:
 ---
 
 ### 🛡️ [08. Auditorias, Testes & Pentest](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Homologacao_Etapa_1_Confiabilidade_e_Desacoplamento.md)
+
+- [[08_AUDITORIAS_TESTES_E_PENTEST/2026-10-29_Remediacao_Seguranca_e_Publicacao|Remediação de segurança de 29/10 e registro de publicação]]: correções verificadas, evidências de testes, limites conhecidos e reversão.
 Validação de qualidade, segurança e planos futuros:
 - **[Relatório de Auditoria: Validação da URL Frontend, Resolução de CORS e Testes de Navegador](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Auditoria_Live_Frontend_CORS_e_Browser_Testing.md)**: Diagnóstico do erro de CORS no preflight OPTIONS de subdomínios Vercel na API Render, correção de wildcard regex, aplicação de DDLs pendentes em Neon (`password_hash`, `salt`, `principal`), e homologação via Chrome DevTools de todas as telas (/acoes, /acoes/PETR4, /fiis, /fiis/HGLG11, /comparador, /screener, /rankings, /simulador, /cadastro e /login).
 - **[Relatório de Homologação das Etapas 2 e 3: Autonomia & Snapshots CDN](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Homologacao_Etapa_2_e_3_Autonomia_e_Snapshots_CDN.md)**: Homologação do TaskDispatcher, centralização de coletores, motor SnapshotExporter para Cloudflare R2 e Edge CDN, 63 testes unitários no ingestion e Next.js SSG/ISR.

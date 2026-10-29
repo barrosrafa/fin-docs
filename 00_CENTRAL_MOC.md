@@ -124,6 +124,8 @@ Interface moderna e responsiva em Next.js 15:
 
 ### 🛡️ 8. Auditorias, Testes & Pentest
 
+- [[2026-10-29_JWT_CI_e_Validacao_Infra|JWT de produção, 148 testes na CI e situação real do host Docker/Traefik]]
+
 - [[2026-10-29_Remediacao_Seguranca_e_Publicacao|Remediação de segurança de 29/10: RLS, Redis distribuído, cache privado e publicação]]
 Relatórios de validação, segurança e planos de melhoria:
 - [[2026-10-28_RELATORIO_PARIDADE_FUNCIONAL_E_SANEAMENTO_COMPLETO|Relatório Técnico de Paridade Funcional, Saneamento de Mocks e Engenharia Analítica v5.0 (Fundamentus, Oceans14, Análise de Ações, ETFs Brasil)]]

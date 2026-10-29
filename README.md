@@ -136,6 +136,8 @@ Interface moderna em Next.js 15:
 
 ### 🛡️ [08. Auditorias, Testes & Pentest](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Homologacao_Etapa_1_Confiabilidade_e_Desacoplamento.md)
 
+- [[08_AUDITORIAS_TESTES_E_PENTEST/2026-10-29_JWT_CI_e_Validacao_Infra|JWT de produção, CI completa e validação real de Docker/Traefik]]: 148 testes na API, checks do banco e parsers de gateway aprovados; limitação do host Render explicitada.
+
 - [[08_AUDITORIAS_TESTES_E_PENTEST/2026-10-29_Remediacao_Seguranca_e_Publicacao|Remediação de segurança de 29/10 e registro de publicação]]: correções verificadas, evidências de testes, limites conhecidos e reversão.
 Validação de qualidade, segurança e planos futuros:
 - **[Relatório de Auditoria: Validação da URL Frontend, Resolução de CORS e Testes de Navegador](./08_AUDITORIAS_TESTES_E_PENTEST/Relatorio_Auditoria_Live_Frontend_CORS_e_Browser_Testing.md)**: Diagnóstico do erro de CORS no preflight OPTIONS de subdomínios Vercel na API Render, correção de wildcard regex, aplicação de DDLs pendentes em Neon (`password_hash`, `salt`, `principal`), e homologação via Chrome DevTools de todas as telas (/acoes, /acoes/PETR4, /fiis, /fiis/HGLG11, /comparador, /screener, /rankings, /simulador, /cadastro e /login).
